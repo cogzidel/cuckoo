@@ -10,12 +10,13 @@
 {% block content %}
 <style type="text/css">
     .page-canvas {
-    border: 1px solid;
-    border-color: #000;
+    border: 1px solid rgba(0,0,0,0.2);
+    
     width: 100%;
 }
    
 </style>
+<div>
 <div class="page-canvas container">
 <div class='col-sm-3 col-sm-offset-3 text-center'>
     <h1> Login</h1>
@@ -37,16 +38,31 @@
 {% csrf_token %}
 <form method="post" action="{% url 'login' %}">
 {% csrf_token %}
+<!-- Simple Textfield -->
+<form action="#">
+  <div class="mdl-textfield mdl-js-textfield">
+    <input class="mdl-textfield__input" type="text" id="username" name="username">
+    <label class="mdl-textfield__label" for="username">username</label>
+<!--     {{ form.username.label_tag }}
+ -->    <!-- {{ form.username }} -->
+  </div>
 
-<div class="form-group">
+
+<!-- <div class="mdl-textfield mdl-js-textfield">
     {{ form.username.label_tag }}
     {{ form.username }}
-</div>
+</div> -->
+  <div class="mdl-textfield mdl-js-textfield">
+    <input class="mdl-textfield__input" type="password" id="password" name="password">
+    <label class="mdl-textfield__label" for="password">password</label>
+<!--     {{ form.username.label_tag }}
+ -->    <!-- {{ form.username }} -->
+  </div>
 
-<div class="form-group">
+<!-- <div class="form-group">
     {{ form.password.label_tag }}
     {{ form.password }}
-</div>
+</div> -->
 
 <!-- Accent-colored raised button with ripple -->
 <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Login</button>
@@ -61,4 +77,5 @@
 <!-- <p><a href="{% url 'password_reset' %}">Lost password?</a></p> -->
 </div>
 </div>
+
 {% endblock %}
