@@ -1,12 +1,12 @@
 /* LOGIN FORM */
 
 body.login {
-    background: #f8f8f8;
+    background: #000;
 }
 
 .login #header {
     height: auto;
-    padding: 5px 16px;
+    padding: 10Fpx 16px;
 }
 
 .login #header h1 {
@@ -22,13 +22,15 @@ body.login {
 }
 
 .login #container {
-    background: #fff;
+    background: #000;
     border: 1px solid #eaeaea;
     border-radius: 4px;
     overflow: hidden;
     width: 28em;
     min-width: 300px;
     margin: 100px auto;
+    border: 1px;
+    border-color: #00000: 
 }
 
 .login #content-main {
@@ -74,5 +76,10 @@ body.login {
 }
 
 .login .password-reset-link {
-    text-align: center;
+    text-align: left;
 }
+.page-canvas .container {
+border: 1px solid
+border-color: #000;
+width: 100%
+}   
