@@ -25,7 +25,7 @@
 				{% for user in object.profile.get_following %}
 				  <a href='/{{ user.username}}'>{{ user.username }}</a> <br/>
 				  {% empty %}
-				  <h4> Not following any users </h4>
+				  <h4> Not following  users </h4>
 			    {% endfor %}
 		<hr/>
 

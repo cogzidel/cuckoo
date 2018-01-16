@@ -11,9 +11,9 @@
 {% block content %}
 	
 				<div class='row'>
-					<div class=' col-sm-3 col-xs-12' style='background-color:red;'>
-						<h1>{{ request.user }}</h1>
-						<p class="lead">Recommended Users</p>
+					<div class=' col-sm-3 col-xs-12' style='background-color:grey;'>
+						<h1 style="background-color: white">{{ request.user }}</h1>
+						<p class="lead" style="background-color: white" >Recommended Users</p>
 						{% recommended request.user%}
 					</div>
 					<div class='col-sm-9'>

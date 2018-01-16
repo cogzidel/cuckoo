@@ -8,16 +8,16 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="{% url 'home' %}">Tweetme</a>
+      <a class="navbar-brand" href="{% url 'home' %}">Cuckoo</a>
     </div>
 
-    {% include "tweets/search_form.html" %}
+    
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       {% if request.user.is_authenticated %}
 
        <ul class="nav navbar-nav navbar-right">
-        
+          {% include "tweets/search_form.html" %}
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account <span class="caret"></span></a>
           <ul class="dropdown-menu">
