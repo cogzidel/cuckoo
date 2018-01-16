@@ -10,27 +10,27 @@
 
 {% block content %} 
 <div class='row'>
-	<div class=' col-sm-3 col-xs-12'>
+	<div class=' col-sm-3 col-xs-12' style=" background-color: rgb(212, 210, 215)">
 		 <!-- style='background-color:red;' -->
-		<h1>{{ object.username }}</h1> <hr/>
-		<p> Followers: {{object.followed_by.all.count}}</p>
+		<h1 style="margin-top: 5px">{{ object.username }}</h1> 
+		<p style="margin-top: 5px"> Followers: {{object.followed_by.all.count}}</p>
 		<p>
-			<a class='btn btn-link' href='{{ object.profile.get_follow_url }}'>{% if following %}Unfollowing{% else %}Follow{% endif %}
+			<a class='btn btn-link' style="margin-top: 10px" href='{{ object.profile.get_follow_url }}'>{% if following %}Unfollowing{% else %}Follow{% endif %}
 			</a>
 		</p>
-		<hr/>
-			  <h1>Following <small>{{ object.profile.get_following.count }}</small></h1>	
+		
+			  <h1 style="margin-top: 10px">Following <small>{{ object.profile.get_following.count }}</small></h1>	
 
 			   	<!--  {{ object.profile.following}} -->
 				{% for user in object.profile.get_following %}
 				  <a href='/{{ user.username}}'>{{ user.username }}</a> <br/>
 				  {% empty %}
-				  <h4> Not following any users </h4>
+				  <h4 style="margin-top: -10px"> Not following  users </h4>
 			    {% endfor %}
-		<hr/>
+		
 
-		<hr/>
-			  <h1>Followed By</h1>	
+		
+			  <h1 style="margin-top: 10px">Followed By</h1>	
 					   <!--  {{ object.profile.following}} -->
 						{% for profile in object.followed_by.all %}
 						 <a href='/{{ profile.user.username}}'>{{ profile.user.username }}</a>
@@ -38,7 +38,7 @@
 						  {% empty %}
 						  <h4> Not followed by  any users </h4>
 					    {% endfor %}
-		<hr/>	
+			
 
 	</div>
 	<div class='col-sm-9 col-xs-12'>
