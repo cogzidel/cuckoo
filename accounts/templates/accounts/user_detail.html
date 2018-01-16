@@ -9,54 +9,67 @@
 {% endblock script %}
 
 {% block content %} 
-<div class='row'>
-	<div class=' col-sm-3 col-xs-12' style=" background-color: rgb(212, 210, 215)">
-		 <!-- style='background-color:red;' -->
-		<h1 style="margin-top: 5px">{{ object.username }}</h1> 
-		<p style="margin-top: 5px"> Followers: {{object.followed_by.all.count}}</p>
-		<p>
-			<a class='btn btn-link' style="margin-top: 10px" href='{{ object.profile.get_follow_url }}'>{% if following %}Unfollowing{% else %}Follow{% endif %}
-			</a>
-		</p>
-		
-			  <h1 style="margin-top: 10px">Following <small>{{ object.profile.get_following.count }}</small></h1>	
+<div class='Grid Grid--withGutter'>
+	<div class='Grid-cell u-size1of3 u-lg-size1of4' style="background-color: rgb(70, 129, 180);padding: 5px;">
+		<div class="Grid Grid--withGutter">
+			<div class="Grid-cell">
+				<div class="ProfileSidebar ProfileSidebar--withLeftAlignment">
+					<h1 class="ProfileHeaderCard-name" style="margin-top: 5px">{{ object.username }}</h1> 
+					<p class="ProfileHeaderCard-screenname u-inlineBlock u-dir" style="margin-top: 15px"> Followers: {{object.followed_by.all.count}}
+					</p>
+					<p>
+						<a class='btn btn-link' style="margin-top: 25px" href='{{ object.profile.get_follow_url }}'>{% if following %}Unfollowing{% else %}Follow{% endif %}
+						</a>
+					</p>		
 
-			   	<!--  {{ object.profile.following}} -->
-				{% for user in object.profile.get_following %}
-				  <a href='/{{ user.username}}'>{{ user.username }}</a> <br/>
-				  {% empty %}
-				  <h4 style="margin-top: -10px"> Not following  users </h4>
-			    {% endfor %}
-		
-
-		
-			  <h1 style="margin-top: 10px">Followed By</h1>	
-					   <!--  {{ object.profile.following}} -->
-						{% for profile in object.followed_by.all %}
-						 <a href='/{{ profile.user.username}}'>{{ profile.user.username }}</a>
-						  <br/>
-						  {% empty %}
-						  <h4> Not followed by  any users </h4>
-					    {% endfor %}
-			
-
+				</div>
+			</div>
+		</div> 		  
 	</div>
-	<div class='col-sm-9 col-xs-12'>
-		<h1>Tweets</h1>
-		<div id='tweet-container' data-url='/api/{{ object.username }}/tweet'>
+	<div class='Grid-cell u-size2of3 u-lg-size3of4'>
+		<div class="Grid Grid--withGutter">
+
+			<div class="Grid-cell u-lg-size2of3">
+				<h1>Tweets</h1>
+				<div id='tweet-container' data-url='/api/{{ object.username }}/tweet'>
+				</div>
+				<a href='#' id='loadmore'>Load More Tweets</a>
+
+				<!-- {% for tweet in object.tweet_set.all %}
+				{{ tweet }} <br/>
+				{% endfor %} -->
+				<!-- {{ object.content }}<br/>
+				<br/>
+				{{ object.timestamp|timesince }} -->
+			</div>
+
+			<div class="Grid-cell u-size1of3" style="background-color: rgb(70, 129, 180);padding: 5px;">
+				<div class="Grid Grid--withGutter">
+					<div class="Grid-cell">
+						<div class="ProfileSidebar ProfileSidebar--withLeftAlignment">
+											
+  										<h1 class="ProfileHeaderCard-name" >Following <small>{{ object.profile.get_following.count }}</small></h1>
+							   	<!--  {{ object.profile.following}} -->
+							{% for user in object.profile.get_following %}
+							  <a href='/{{ user.username}}'>{{ user.username }}</a> <br/>
+							  {% empty %}
+							  <h4 class="ProfileHeaderCard-screenname u-inlineBlock u-dir" style="margin-top: -10px"> Not following  users </h4>
+							    {% endfor %}
+
+							  <h1 class="ProfileHeaderCard-name"  style="margin-top: 10px">Followed By</h1>	
+							   <!--  {{ object.profile.following}} -->
+							{% for profile in object.followed_by.all %}
+							 <a href='/{{ profile.user.username}}'>{{ profile.user.username }}</a>
+							  <br/>
+							  {% empty %}
+							  <h4 class="ProfileHeaderCard-screenname u-inlineBlock u-dir"> Not followed by  any users </h4>
+							    {% endfor %}
+
+						</div>
+			</div>
 		</div>
-		<a href='#' id='loadmore'>Load More Tweets</a>
-
-		<!-- {% for tweet in object.tweet_set.all %}
-		{{ tweet }} <br/>
-		{% endfor %} -->
-
-
-
-		<!-- {{ object.content }}<br/>
-		<br/>
-		{{ object.timestamp|timesince }} -->
 	</div>
+		
  {% endblock content %}
 
 
