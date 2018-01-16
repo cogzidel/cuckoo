@@ -1,22 +1,54 @@
 <!-- Modal -->
-<div class="modal fade" id="replyModal" tabindex="-1" role="dialog" aria-labelledby="MyModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <form class="from tweet-form"> {% csrf_token %}
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h5 class="modal-title" id="replyModalLabel">Modal title</h5>
-        </div>
-      <div class="modal-body">
-      
-        <textarea id='tweetReplyArea' class='from-control' name='content'></textarea>
-      
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-       <input type="submit" class="btn btn-primary" value='Reply'>
-      </div>
-      </form>
+<div class="modal draggable" id="global-tweet-dialog-dialog" role="alertdialog" aria-labelledby="global-tweet-dialog-header" aria-describedby="global-tweet-dialog-body" style="top: -150%; left: 360px;">
+    <div class="js-first-tabstop"></div>
+    <!-- <div class="modal-dialog" role="document"> -->
+
+    <div class="modal-content" role="document">
+        <button type="button" class="modal-btn modal-close js-close" data-dismiss="modal" aria-label="Close">
+          <span class="Icon Icon--close Icon--medium">
+          <span class="visuallyhidden" aria-hidden="true">&times;</span>
+          </span>
+        </button>
+        <form class="from tweet-form"> {% csrf_token %}
+          <div class="modal-header">
+              <!-- <button type="button" class="modal-btn modal-close js-close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
+              <h5 class="modal-title" id="global-tweet-dialog-header">Modal title</h5>
+          </div>
+
+          <div class="modal-body modal-tweet" id="global-tweet-dialog-body">
+                <div class="content"> 
+                        <div class="stream-item-header">
+                            <img class="account-group" src="https://pbs.twimg.com/profile_images/940421118682370048/29vCHEcW_bigger.jpg" alt></img>
+                            <span class="FullNameGroup">
+                                <strong class="" id="global-tweet-user"></strong>
+                                <span>‏ </span>
+                                <span class="Icon Icon--verified"></span>
+                                <small id="global-tweet-user-time"> time </small>
+                            </span>
+                        </div>
+                        <div class="js-tweet-text-container">
+                              <p id ="global-tweet-content"></p>
+                        </div>
+                        <div class="AdaptiveMedia AdaptiveMedia--hiddenWhenNotExpanded is-square " style="max-width:471px;">
+                        </div>
+                </div>               
+
+          </div>
+
+          <div class="tweet-content">      
+            <textarea aria-hidden="true" id='tweetReplyArea' class='from-control' name='content'></textarea>
+
+          </div>
+
+          <!-- <div class="modal-tweet-form-container">      
+            <textarea id='tweetReplyArea' class='from-control' name='content'></textarea>
+
+          </div> -->
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <input type="submit" class="btn btn-primary" value='Reply'>
+          </div>
+        </form>
     </div>
-  </div>
 </div>
