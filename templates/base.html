@@ -161,9 +161,6 @@
               $("#global-tweet-dialog-dialog").on("shown.bs.modal", function(){
               $('textarea').focus()
               })
-              // $(".modal-dialog").draggable({
-              //     handle: ".modal-header"
-              // });
             });
 
           function updateHashLinks()
@@ -375,7 +372,7 @@
                           this_.find("input[type=text], textarea").val("")
                           attachTweet(data, true)
                           updateHashLinks()
-                          $("#replyModal").modal("hide")
+                          $("#global-tweet-dialog-dialog").modal("hide")
                         },
                         error: function (data){
                             console.log("error")

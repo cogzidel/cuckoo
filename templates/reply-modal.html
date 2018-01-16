@@ -1,5 +1,5 @@
 <!-- Modal -->
-<div class="modal draggable" id="global-tweet-dialog-dialog" role="alertdialog" aria-labelledby="global-tweet-dialog-header" aria-describedby="global-tweet-dialog-body" style="top: -150%; left: 360px;">
+<div class="modal draggable" id="global-tweet-dialog-dialog" role="alertdialog" aria-labelledby="global-tweet-dialog-header" aria-describedby="global-tweet-dialog-body" style="top: -180%; left: 360px;">
     <div class="js-first-tabstop"></div>
     <!-- <div class="modal-dialog" role="document"> -->
 
@@ -35,19 +35,13 @@
 
           </div>
 
-          <div class="tweet-content">      
-            <textarea aria-hidden="true" id='tweetReplyArea' class='from-control' name='content'></textarea>
-
+          <div class="modal-tweet-form-container">      
+            <textarea aria-hidden="true" id='tweetReplyArea' class='form-control' name='content' style="margin: 10px 20px 10px 10px; width: 472px; height: 113px;"></textarea>
           </div>
 
-          <!-- <div class="modal-tweet-form-container">      
-            <textarea id='tweetReplyArea' class='from-control' name='content'></textarea>
-
-          </div> -->
-
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <input type="submit" class="btn btn-primary" value='Reply'>
+          <div class="TweetBoxToolbar-tweetButton tweet-button">
+            <input type="button" class="EdgeButton EdgeButton-primary" data-dismiss="modal" value='Close' style="margin-right:  5px;margin-left:  5px;margin-bottom: 5px;">
+            <input type="submit" class="EdgeButton EdgeButton-primary disabled" value='Reply' name="reply" style="margin-right:  5px;margin-left:  5px;margin-bottom: 5px;">
           </div>
         </form>
     </div>
