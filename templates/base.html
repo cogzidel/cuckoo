@@ -16,13 +16,25 @@
 
    <!-- Material Lite CSS -->
 
-   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+   <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
    <link rel="stylesheet" href="{% static 'css/material.min.css' %}">
-   <script defer src="{% static 'css/material.min.js' %}"></script>
+   <script defer src="{% static 'css/material.min.js' %}"></script> -->
 
     <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script> -->
+
+    <!-- Twitter Css -->
+
+    <link rel="stylesheet" href="https://abs.twimg.com/a/1515735725/css/t1/twitter_core.bundle.css" class="coreCSSBundles">
+    <link rel="stylesheet" class="moreCSSBundles" href="https://abs.twimg.com/a/1515735725/css/t1/twitter_more_1.bundle.css">
+    <link rel="stylesheet" class="moreCSSBundles" href="https://abs.twimg.com/a/1515735725/css/t1/twitter_more_2.bundle.css">
+
+    <link rel="dns-prefetch" href="https://pbs.twimg.com">
+    <link rel="dns-prefetch" href="https://t.co">
+    <link rel="preload" href="https://abs.twimg.com/k/en/init.en.635d4f4795f804db92fe.js" as="script">
+    <link rel="preload" href="https://abs.twimg.com/k/en/0.commons.en.26a13b153a8ffb218234.js" as="script">
+    <link rel="preload" href="https://abs.twimg.com/k/en/8.pages_home.en.74e82bfe24cb747ed186.js" as="script">
 
    <style>
      .red-color {
@@ -135,14 +147,23 @@
               var parentId = this_.attr("data-id")
               var username = this_.attr("data-user")
               var content = this_.parent().parent().find(".content").text()
-              $("#replyModal").modal({})
-              $("#replyModal textarea").after("<input type='hidden' value='"+ parentId + "'name='parent_id' />")
-              $("#replyModal textarea").after("<input type='hidden' value='"+ true + "'name='reply' />")
-              $("#replyModal textarea").val("@" + username + " ")
-              $("#replyModal #replyModalLabel").text("Reply to " + content)
-              $("#replyModal").on("shown.bs.modal", function(){
+              var tweetTime = this_.attr("data-time")
+              $("#global-tweet-dialog-dialog").modal({})
+              $("#global-tweet-dialog-dialog textarea").after("<input type='hidden' value='"+parentId + "'name='parent_id' />")
+              $("#global-tweet-dialog-dialog textarea").after("<input type='hidden' value='"+ true + "'name='reply' />")
+              $("#global-tweet-dialog-dialog textarea").val("@" + username + " ")
+              $("#global-tweet-dialog-dialog #global-tweet-dialog-header").text("Reply to " + username)
+              $("#global-tweet-dialog-dialog #global-tweet-user").text(" " + username)
+              $("#global-tweet-dialog-dialog #global-tweet-user-time").text(" " + tweetTime)
+              $("#global-tweet-dialog-dialog #global-tweet-content").text(" " + content)
+              $("#global-tweet-dialog-dialog #global-tweet-replying").text("Replying to " + username)
+              
+              $("#global-tweet-dialog-dialog").on("shown.bs.modal", function(){
               $('textarea').focus()
               })
+              // $(".modal-dialog").draggable({
+              //     handle: ".modal-header"
+              // });
             });
 
           function updateHashLinks()
@@ -192,7 +213,7 @@
               verb = 'Unlike'
             }
 
-            tweetContent = "<span class='content'>" + tweetValue.content + "</span> <br/> via <a href='" + tweetValue.user.url + "'>" + tweetValue.user.username + "</a> | " + tweetValue.date_display + " | " + " <a href='/tweet/" + tweetValue.id + "'>View</a> | " + " <a class='retweetBtn' href='/tweet/" + tweetValue.id + "/retweet/'>Retweet</a>" + " | <a href='#' class='tweet-like' data-id='" + tweetValue.id + "''>" + verb + "(" + tweetValue.likes + ")</a>" + " | <a class='tweet-reply' data-user='" + tweetValue.user.username + "'data-id='" + replyId + "'' >Reply</a>";
+            tweetContent = "<span class='content'>" + tweetValue.content + "</span> <br/> via <a href='" + tweetValue.user.url + "'>" + tweetValue.user.username + "</a> | " + tweetValue.date_display + " | " + " <a href='/tweet/" + tweetValue.id + "'>View</a> | " + " <a class='retweetBtn' href='/tweet/" + tweetValue.id + "/retweet/'>Retweet</a>" + " | <a href='#' class='tweet-like' data-id='" + tweetValue.id + "''>" + verb + "(" + tweetValue.likes + ")</a>" + " | <a class='tweet-reply' data-time='" + tweetValue.date_display + "' data-user='" + tweetValue.user.username + "'data-id='" + replyId + "'' >Reply</a>";
 
             if (preContent){
               container = openingContainerDiv + "<div class=\"media-body\">" + preContent + tweetContent + "</div></div><hr/>"
