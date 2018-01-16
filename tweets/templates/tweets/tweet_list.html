@@ -26,7 +26,7 @@
             
             data-element-term="tweet_stats">
           <span class="ProfileCardStats-statLabel u-block">Tweet</span>
-          <span class="ProfileCardStats-statValue" >{{ object.profile.get_following.count}}</span>
+          <span class="ProfileCardStats-statValue" >4{{ object.profile.get_following.count}}</span>
           <!-- console.log("following count"+ {{object.followed_by.all.count}}) -->
 
         </a>
@@ -35,7 +35,7 @@
               title="69 Following"
               data-element-term="following_stats">
             <span class="ProfileCardStats-statLabel u-block">Following</span>
-            <span class="ProfileCardStats-statValue" data-count= data-is-compact="false"></span>
+            <span class="ProfileCardStats-statValue" data-count= data-is-compact="false">3</span>
           </a>
         </li><li class="ProfileCardStats-stat Arrange-sizeFit">
           <a class="ProfileCardStats-statLink u-textUserColor u-linkClean u-block js-nav js-tooltip"
@@ -43,18 +43,21 @@
               
               data-element-term="follower_stats">
             <span class="ProfileCardStats-statLabel u-block">Followers</span>
-            <span class="ProfileCardStats-statValue" data-count= data-is-compact="false"></span>
+            <span class="ProfileCardStats-statValue" data-count= data-is-compact="false">4</span>
           </a>
         </li>
     </ul>
   </div>
   <div>
-							<p class="sapce">
-							<div style="background-color: white; height: 20px;" ><p class="lead" style="height: 0px;">Recommended Users</p>
+						<p class="sapce" style="background-color: black">
+							<div style="background-color: black; height: 20px; margin-left: 900px; margin-top:-100px;" ><p class="lead" style="width: 150px; background-color: steelblue; color: white; font-size: 15px;">Who to Follow</p>
 							</div>
-							{% recommended request.user%}
+							<div style="margin-left: 900px; margin-top:15px; background-color: black">{% recommended request.user%}</div>
 							
-						</p></div>
+							
+						</p>
+					</div>
+  
 					</div>
 					
 					<div class='col-sm-9'>
