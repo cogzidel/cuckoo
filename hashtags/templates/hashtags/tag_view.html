@@ -9,7 +9,34 @@
 
 {% block content %} 
 
-		
+<!-- <div class='Grid Grid--withGutter'>
+	<div class='Grid-cell u-size1of3 u-lg-size1of4' style="background-color: white/*rgb(70, 129, 180)*/;">
+		<div class="Grid Grid--withGutter">
+			<div class="Grid-cell">
+				<div class="ProfileSidebar ProfileSidebar--withLeftAlignment">
+					{% if request.GET.q %}
+					<p class="lead">Results for {{ request.GET.q }}</p>
+					{% endif %}
+				</div>
+			</div>
+		</div>     
+	</div>
+
+<div class='Grid-cell u-size2of3 u-lg-size3of4' style="padding-left: 15px; width: 80%">
+	<div class="Grid Grid--withGutter">
+		<div id='tweet-container'>
+			<h1>Tweets</h1>
+				<hr/>
+	 			<div id="tweet-container" data-url="/api/tags/{{ obj.tag }}/">	
+	 			</div>
+
+	 			<a href="#" id="loadmore">Load More Tweets</a>
+		</div>
+	</div>     
+</div>
+</div> -->
+
+
 	<div class="row">
 		<div class="col-sm-12">
 			{% if request.GET.q %}
@@ -17,8 +44,8 @@
 			{% endif %}
 		</div>
 		
-		<div class="col-sm-8 col-sm-offset-2">
-				<h1>Tweets</h1>
+		<div class="col-sm-8 col-sm-offset-2" style="background-color: white">
+				<h1 style="margin-top: 15px">Tweets</h1>
 				<hr/>
 	 			<div id="tweet-container" data-url="/api/tags/{{ obj.tag }}/">	
 	 			</div>
@@ -28,6 +55,12 @@
 		</div>
 		
 	</div>
+
+
+
+
+
+
 {% endblock content %}
 
 
