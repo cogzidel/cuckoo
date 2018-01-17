@@ -10,11 +10,12 @@
 
 {% block content %} 
 <div class='row'>
-	<div class=' col-sm-3 col-xs-12' style='background-color:yellow;'>
-		<h1>{{ object.user }}</h1>
+	<div class=' col-sm-3 col-xs-12' style='background-color:rgb(70, 129, 180);'>
+		<h1 class="ProfileHeaderCard-name" style="margin: 15px">{{ object.user }}</h1>
 	</div>
-	<div class='col-sm-9 col-xs-12'>
-		<div id='tweet-container'>
+	<div class='col-sm-9 col-xs-12' style="padding-left: 15px;">
+		<div id='tweet-container'  style="padding:15px;background-color: white;">
 		</div>
 	</div>
+</div>
  {% endblock content %}
