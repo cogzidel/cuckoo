@@ -60,6 +60,16 @@
   .btn-primary{
   background-color: red
 }
+
+div#replyModal {
+    top: 6em;
+    left: 3em;
+    padding-right: 15px;
+    margin: 0 auto;
+    position: absolute;
+    
+}   
+
    </style>
 
   </head>
@@ -162,17 +172,18 @@
               var username = this_.attr("data-user")
               var content = this_.parent().parent().find(".content").text()
               var tweetTime = this_.attr("data-time")
-              $("#global-tweet-dialog-dialog").modal({})
-              $("#global-tweet-dialog-dialog textarea").after("<input type='hidden' value='"+parentId + "'name='parent_id' />")
-              $("#global-tweet-dialog-dialog textarea").after("<input type='hidden' value='"+ true + "'name='reply' />")
-              $("#global-tweet-dialog-dialog textarea").val("@" + username + " ")
-              $("#global-tweet-dialog-dialog #global-tweet-dialog-header").text("Reply to " + username)
-              $("#global-tweet-dialog-dialog #global-tweet-user").text(" " + username)
-              $("#global-tweet-dialog-dialog #global-tweet-user-time").text(" " + tweetTime)
-              $("#global-tweet-dialog-dialog #global-tweet-content").text(" " + content)
-              $("#global-tweet-dialog-dialog #global-tweet-replying").text("Replying to " + username)
+              console.log("replyModal")
+              $("#replyModal").modal({})
+              $("#replyModal textarea").after("<input type='hidden' value='"+parentId + "'name='parent_id' />")
+              $("#replyModal textarea").after("<input type='hidden' value='"+ true + "'name='reply' />")
+              $("#replyModal textarea").val("@" + username + " ")
+              $("#replyModal #global-tweet-dialog-header").text("Reply to " + username)
+              $("#replyModal #global-tweet-user").text(" " + username)
+              $("#replyModal #global-tweet-user-time").text(" " + tweetTime)
+              $("#replyModal #global-tweet-content").text(" " + content)
+              $("#replyModal #global-tweet-replying").text("Replying to " + username)
               
-              $("#global-tweet-dialog-dialog").on("shown.bs.modal", function(){
+              $("#replyModal").on("shown.bs.modal", function(){
               $('textarea').focus()
               })
             });
@@ -386,7 +397,7 @@
                           this_.find("input[type=text], textarea").val("")
                           attachTweet(data, true)
                           updateHashLinks()
-                          $("#global-tweet-dialog-dialog").modal("hide")
+                          $("#replyModal").modal("hide")
                         },
                         error: function (data){
                             console.log("error")
