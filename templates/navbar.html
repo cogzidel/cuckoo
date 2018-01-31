@@ -6,197 +6,127 @@
           <h1 class="Icon Icon--bird bird-topbar-etched" style="display: inline-block; width: 24px; height: 21px;">
             <span class="visuallyhidden">Twitter</span>
           </h1>
+
           <div class="pushstate-spinner"></div>
 
+          <div role="navigation" style="display: inline-block;">
+            <ul class="nav js-global-actions" id="global-actions">
+                <li id="global-nav-home" class="home active new" data-global-action="home">
+                  <a class="js-nav js-tooltip js-dynamic-tooltip" data-placement="bottom" href="/" data-component-context="home_nav" data-nav="home">
+                    <span class="Icon Icon--home Icon--large"></span>
+                    <span class="Icon Icon--homeFilled Icon--large u-textUserColor"></span>
+                    <span class="text" aria-hidden="true">Cuckoo</span>
+                    <span class="u-hiddenVisually a11y-inactive-page-text">Home</span>
+                    <span class="u-hiddenVisually a11y-active-page-text">Home, current page.</span>
+                    <span class="u-hiddenVisually hidden-new-items-text">New Tweets available.</span>
+                  </a>
+                </li>
+            </ul>
+          </div>
+
+          {% if request.user.is_authenticated %}
+
+          <div class="pull-right nav-extras">
+
+              <div role="search">
+                  <form class="t1-form form-search js-search-form" action="/search" id="global-nav-search">
+                    <label class="visuallyhidden" for="search-query">Search query</label>
+                    <input class="search-input" type="text" id="search-query" placeholder="Search Twitter" name="q" autocomplete="off" spellcheck="false" aria-autocomplete="list" aria-expanded="false" aria-owns="typeahead-dropdown-1">
+
+                    <span class="search-icon js-search-action">
+                      <button type="submit" class="Icon Icon--medium Icon--search nav-search" tabindex="-1">
+                        <span class="visuallyhidden">Search Twitter</span>
+                      </button>
+                    </span>
+
+                    <!-- <div role="listbox" class="dropdown-menu typeahead" id="typeahead-dropdown-1">
+                      <div aria-hidden="true" class="dropdown-caret">
+                        <div class="caret-outer"></div>
+                        <div class="caret-inner"></div>
+                      </div>
+
+                      <div role="presentation" class="dropdown-inner js-typeahead-results">
+                        <div role="presentation" class="typeahead-recent-searches block0">
+                            <h3 id="recent-searches-heading" class="typeahead-category-title recent-searches-title">Recent searches</h3>
+                            <button type="button" tabindex="-1" class="btn-link clear-recent-searches">Clear All</button>
+                            <ul role="presentation" class="typeahead-items recent-searches-list">
+
+                              <li role="presentation" class="typeahead-item typeahead-recent-search-item">
+                                <span class="Icon Icon--close" aria-hidden="true"><span class="visuallyhidden">Remove</span></span>
+                                <a role="option" aria-describedby="recent-searches-heading" class="js-nav" href="" data-search-query="" data-query-source="" data-ds="recent_search" tabindex="-1"></a>
+                              </li>
+                            </ul>
+                        </div>
+
+                        <div role="presentation" class="typeahead-saved-searches block2">
+                          <h3 id="saved-searches-heading" class="typeahead-category-title saved-searches-title">Saved searches</h3>
+                          <ul role="presentation" class="typeahead-items saved-searches-list">
+
+                            <li role="presentation" class="typeahead-item typeahead-saved-search-item">
+                              <span class="Icon Icon--close" aria-hidden="true"><span class="visuallyhidden">Remove</span></span>
+                              <a role="option" aria-describedby="saved-searches-heading" class="js-nav" href="" data-search-query="" data-query-source="" data-ds="saved_search" tabindex="-1"></a>
+                            </li>
+                          </ul>
+                        </div>
+
+                        <ul role="presentation" class="typeahead-items typeahead-topics block3" style="display: none;">
+                          <li role="presentation" class="typeahead-item typeahead-topic-item">
+                            <a role="option" class="js-nav" href="" data-search-query="" data-query-source="typeahead_click" data-ds="topics" tabindex="-1"></a>
+                          </li>
+                        </ul>
+
+                        <ul role="presentation" class="typeahead-items typeahead-accounts social-context js-typeahead-accounts block4" style="display: none;">
+
+                          <li role="presentation" data-user-id="" data-user-screenname="" data-remote="true" data-score="" class="typeahead-item typeahead-account-item js-selectable">
+
+                            <a role="option" class="js-nav" data-query-source="typeahead_click" data-search-query="" data-ds="account">
+                              <div class="js-selectable typeahead-in-conversation hidden">
+                                <span class="Icon Icon--follower Icon--small"></span>
+                                <span class="typeahead-in-conversation-text">In this conversation</span>
+                              </div>
+                              <img class="avatar size32" alt="">
+                              <span class="typeahead-user-item-info account-group">
+                                <span class="fullname"></span><span class="UserBadges"><span class="Icon Icon--verified js-verified hidden"><span class="u-hiddenVisually">Verified account</span></span><span class="Icon Icon--protected js-protected hidden"><span class="u-hiddenVisually">Protected Tweets</span></span></span><span class="UserNameBreak">&nbsp;</span><span class="username u-dir" dir="ltr">@<b></b></span>
+                              </span>
+                              <span class="typeahead-social-context"></span>
+                            </a>
+                          </li>
+                          <li role="presentation" class="js-selectable typeahead-accounts-shortcut js-shortcut"><a role="option" class="js-nav" href="" data-search-query="" data-query-source="typeahead_click" data-shortcut="true" data-ds="account_search"></a></li>
+                        </ul>
+                      </div>
+                    </div> -->
+
+                  </form>
+              </div>
+
+              <ul class="nav right-actions">
+                <li class="me dropdown session js-session" data-global-action="t1me" id="user-dropdown">
+                      <a href="{{ request.user.profile.get_absolute_url }}" class="btn js-tooltip settings dropdown-toggle js-dropdown-toggle" id="user-dropdown-toggle" title="Profile and settings" data-placement="bottom" rel="noopener" role="button" aria-haspopup="true">
+                          <img class="Avatar Avatar--size32" src="https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png" alt="Profile and settings" data-user-id="2218875613">
+                      </a>
+
+                </li>
+
+                <li role="complementary" aria-labelledby="global-new-tweet-button" class="topbar-tweet-btn">
+                  <a href="{% url 'logout' %}" class="js-global-new-tweet js-tooltip EdgeButton EdgeButton--primary js-dynamic-tooltip" id="global-new-tweet-button" style="margin: 5px;padding: 10px;font-size: 15px;color: white; background-color:#1da1f2" data-placement="bottom" data-component-context="new_tweet_button" data-original-title role="button">LogOut
+                  </a>
+
+                </li>
+
+              </ul>
+          </div>
+
+          {% else %}
+          <div class="pull-right nav-extras">
+            <ul class="nav right-actions">
+              <li><a href="{% url 'login' %}">Login</a></li>
+              <li><a href="{% url 'register' %}">Register</a></li>
+            </ul>
+          </div>
 
 
-  <div role="navigation" style="display: inline-block;">
-    <ul class="nav js-global-actions" id="global-actions">
-        <li id="global-nav-home" class="home active new" data-global-action="home">
-          <a class="js-nav js-tooltip js-dynamic-tooltip" data-placement="bottom" href="/" data-component-context="home_nav" data-nav="home">
-            <span class="Icon Icon--home Icon--large"></span>
-            <span class="Icon Icon--homeFilled Icon--large u-textUserColor"></span>
-            <span class="text" aria-hidden="true">Cuckoo</span>
-            <span class="u-hiddenVisually a11y-inactive-page-text">Home</span>
-            <span class="u-hiddenVisually a11y-active-page-text">Home, current page.</span>
-            <span class="u-hiddenVisually hidden-new-items-text">New Tweets available.</span>
-          </a>
-        </li>
-    </ul>
-  </div>
 
-  <div class="pull-right nav-extras">
-    <div role="search">
-  <form class="t1-form form-search js-search-form" action="/search" id="global-nav-search">
-    <label class="visuallyhidden" for="search-query">Search query</label>
-    <input class="search-input" type="text" id="search-query" placeholder="Search Twitter" name="q" autocomplete="off" spellcheck="false" aria-autocomplete="list" aria-expanded="false" aria-owns="typeahead-dropdown-1">
-    <span class="search-icon js-search-action">
-      <button type="submit" class="Icon Icon--medium Icon--search nav-search" tabindex="-1">
-        <span class="visuallyhidden">Search Twitter</span>
-      </button>
-    </span>
-      <div role="listbox" class="dropdown-menu typeahead" id="typeahead-dropdown-1">
-  <div aria-hidden="true" class="dropdown-caret">
-    <div class="caret-outer"></div>
-    <div class="caret-inner"></div>
-  </div>
-  <div role="presentation" class="dropdown-inner js-typeahead-results"><div role="presentation" class="typeahead-recent-searches block0">
-  <h3 id="recent-searches-heading" class="typeahead-category-title recent-searches-title">Recent searches</h3><button type="button" tabindex="-1" class="btn-link clear-recent-searches">Clear All</button>
-  <ul role="presentation" class="typeahead-items recent-searches-list">
-    
-    <li role="presentation" class="typeahead-item typeahead-recent-search-item">
-      <span class="Icon Icon--close" aria-hidden="true"><span class="visuallyhidden">Remove</span></span>
-      <a role="option" aria-describedby="recent-searches-heading" class="js-nav" href="" data-search-query="" data-query-source="" data-ds="recent_search" tabindex="-1"></a>
-    </li>
-  </ul>
-</div><div role="presentation" class="typeahead-saved-searches block2">
-  <h3 id="saved-searches-heading" class="typeahead-category-title saved-searches-title">Saved searches</h3>
-  <ul role="presentation" class="typeahead-items saved-searches-list">
-    
-    <li role="presentation" class="typeahead-item typeahead-saved-search-item">
-      <span class="Icon Icon--close" aria-hidden="true"><span class="visuallyhidden">Remove</span></span>
-      <a role="option" aria-describedby="saved-searches-heading" class="js-nav" href="" data-search-query="" data-query-source="" data-ds="saved_search" tabindex="-1"></a>
-    </li>
-  </ul>
-</div><ul role="presentation" class="typeahead-items typeahead-topics block3" style="display: none;">
-  
-  <li role="presentation" class="typeahead-item typeahead-topic-item">
-    <a role="option" class="js-nav" href="" data-search-query="" data-query-source="typeahead_click" data-ds="topics" tabindex="-1"></a>
-  </li>
-</ul><ul role="presentation" class="typeahead-items typeahead-accounts social-context js-typeahead-accounts block4" style="display: none;">
-  
-  <li role="presentation" data-user-id="" data-user-screenname="" data-remote="true" data-score="" class="typeahead-item typeahead-account-item js-selectable">
-    
-    <a role="option" class="js-nav" data-query-source="typeahead_click" data-search-query="" data-ds="account">
-      <div class="js-selectable typeahead-in-conversation hidden">
-        <span class="Icon Icon--follower Icon--small"></span>
-        <span class="typeahead-in-conversation-text">In this conversation</span>
-      </div>
-      <img class="avatar size32" alt="">
-      <span class="typeahead-user-item-info account-group">
-        <span class="fullname"></span><span class="UserBadges"><span class="Icon Icon--verified js-verified hidden"><span class="u-hiddenVisually">Verified account</span></span><span class="Icon Icon--protected js-protected hidden"><span class="u-hiddenVisually">Protected Tweets</span></span></span><span class="UserNameBreak">&nbsp;</span><span class="username u-dir" dir="ltr">@<b></b></span>
-      </span>
-      <span class="typeahead-social-context"></span>
-    </a>
-  </li>
-  <li role="presentation" class="js-selectable typeahead-accounts-shortcut js-shortcut"><a role="option" class="js-nav" href="" data-search-query="" data-query-source="typeahead_click" data-shortcut="true" data-ds="account_search"></a></li>
-</ul></div>
-</div>
-
-  </form>
-</div>
-
-    <ul class="nav right-actions">
-      <li class="me dropdown session js-session" data-global-action="t1me" id="user-dropdown">
-        <a href="/settings/account" class="btn js-tooltip settings dropdown-toggle js-dropdown-toggle" id="user-dropdown-toggle" title="Profile and settings" data-placement="bottom" rel="noopener" role="button" aria-haspopup="true">
-            <img class="Avatar Avatar--size32" src="https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png" alt="Profile and settings" data-user-id="2218875613">
-        </a>
-          <div class="DashUserDropdown dropdown-menu dropdown-menu--rightAlign is-forceRight is-autoCentered">
-    <div class="dropdown-caret">
-      <span class="caret-outer"></span>
-      <span class="caret-inner"></span>
-    </div>
-    <ul>
-
-      
-      <li class="DashUserDropdown-userInfo" data-name="user-info">
-        <a href="/KarthiyayiniT" class="DashUserDropdown-userInfoLink js-nav" data-nav="view_profile">
-          <b class="fullname">KARTHIYAYINI T</b><span class="UserBadges"></span>
-          <p class="name"><span class="username u-dir u-textTruncate" dir="ltr">@<b>KarthiyayiniT</b></span></p>
-        </a>
-      </li>
-
-      <li class="dropdown-divider"></li>
-
-      <li class="current-user" data-name="profile">
-        <a href="/KarthiyayiniT" class="js-nav" data-nav="view_profile">
-          <span class="DashUserDropdown-linkIcon Icon Icon--medium Icon--me"></span>Profile
-        </a>
-      </li>
-      
-      <li data-name="lists">
-        <a class="js-nav" href="/KarthiyayiniT/lists" data-nav="all_lists">
-          <span class="DashUserDropdown-linkIcon Icon Icon--medium Icon--list"></span>Lists
-        </a>
-      </li>
-
-      
-      <li data-name="moments">
-        <a class="js-nav" href="/KarthiyayiniT/moments" data-nav="all_moments">
-          <span class="DashUserDropdown-linkIcon Icon Icon--medium Icon--lightning"></span>Moments
-        </a>
-      </li>
-
-      <li class="dropdown-divider"></li>
-
-      
-
-      
-        <li>
-          <a href="https://ads.twitter.com/?ref=gl-tw-tw-twitter-ads" target="_blank" data-nav="ads" rel="noopener">
-            <span class="DashUserDropdown-linkIcon Icon Icon--medium Icon--promotedStroked"></span>Twitter Ads
-          </a>
-        </li>
-
-      
-        <li>
-          <a class="user-dropdown-analytics" href="https://analytics.twitter.com/" target="_blank" data-nav="user_dropdown_analytics" rel="noopener">
-            <span class="DashUserDropdown-linkIcon Icon Icon--medium Icon--analytics"></span>Analytics
-          </a>
-        </li>
-
-      
-
-      
-
-      
-
-      <li class="dropdown-divider"></li>
-
-      
-      <li><a href="/settings/account" data-nav="settings" class="js-nav" rel="noopener">Settings and privacy</a></li>
-
-      
-      <li><a href="//support.twitter.com" data-nav="help_center" rel="noopener">Help Center</a></li>
-
-        
-        <li class="js-keyboard-shortcut-trigger" data-nav="shortcuts">
-          <button type="button" class="dropdown-link">Keyboard shortcuts</button>
-        </li>
-
-      
-      <li class="js-signout-button" id="signout-button" data-nav="logout">
-        <button type="button" class="dropdown-link">Log out</button>
-        <form class="t1-form dropdown-link-form signout-form" id="signout-form" action="/logout" method="POST">
-          <input type="hidden" value="b849d513d1d3b2e80de662a37e43929b30ad1392" name="authenticity_token" class="authenticity_token">
-          <input type="hidden" name="reliability_event" class="js-reliability-event">
-          <input type="hidden" name="scribe_log">
-        </form>
-      </li>
-
-      
-      <li class="dropdown-divider"></li>
-      <li class="current-user nightmode-toggle" data-name="profile">
-        <a class="js-nav" data-nav="view_profile">
-          <span class="DashUserDropdown-linkIcon Icon Icon--medium js-nightmode-icon
-            Icon--crescent
-            ">
-          </span><span class="js-nightmode-label">Night mode</span>
-        </a>
-      </li>
-
-    </ul>
-  </div>
-
-      </li>
-      <li role="complementary" aria-labelledby="global-new-tweet-button" class="topbar-tweet-btn">
-        <button id="global-new-tweet-button" class="js-global-new-tweet js-tooltip EdgeButton EdgeButton--primary js-dynamic-tooltip" data-placement="bottom" data-component-context="new_tweet_button">
-          
-          <span class="text">Tweet</span>
-        </button>
-      </li>
-    </ul>
-  </div>
+          {% endif %}
 
         </div>
       </div>
@@ -204,10 +134,11 @@
 </div>
 
 
+<!--
 <nav class="navbar navbar-default" style="background-color: steelblue;" >
-  <div class="container" style="background-color: steelblue;">
+  <div class="container" style="background-color: steelblue;"> -->
     <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header" style="background-color: steelblue;">
+    <!-- <div class="navbar-header" style="background-color: steelblue;">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
@@ -215,11 +146,11 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" style="color: #fff9ef" href="{% url 'home' %}">Cuckoo</a>
-    </div>
+    </div> -->
 
-    
+
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="background-color: steelblue;">
+    <!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="background-color: steelblue;">
       {% if request.user.is_authenticated %}
 
        <ul class="nav navbar-nav navbar-right">
@@ -235,14 +166,14 @@
       </ul>
 
       {% else %}
-    
+
       <ul class="nav navbar-nav navbar-right">
-     
+
              <li><a href="{% url 'login' %}">Login</a></li>
                <li><a href="{% url 'register' %}">Register</a></li>
           </ul>
-     
+
       {% endif %}
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+    </div><! /.navbar-collapse -->
+  <!-- </div><!- /.container-fluid -->
+<!-- </nav> --> --> -->

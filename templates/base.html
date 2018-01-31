@@ -2,10 +2,10 @@
 <!doctype html>
 <html lang="en">
   <head>
-    
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title> {% block title %} Cuckoo  {% endblock title %}</title>
@@ -32,9 +32,10 @@
 
     <link rel="dns-prefetch" href="https://pbs.twimg.com">
     <link rel="dns-prefetch" href="https://t.co">
-    <link rel="preload" href="https://abs.twimg.com/k/en/init.en.635d4f4795f804db92fe.js" as="script">
-    <link rel="preload" href="https://abs.twimg.com/k/en/0.commons.en.26a13b153a8ffb218234.js" as="script">
-    <link rel="preload" href="https://abs.twimg.com/k/en/8.pages_home.en.74e82bfe24cb747ed186.js" as="script">
+    <link rel="preload" href="https://abs.twimg.com/k/en/init.en.a2da48031f34c5884b0c.js" as="script">
+    <link rel="preload" href="https://abs.twimg.com/k/en/0.commons.en.6c970ed9057a384c0044.js" as="script">
+    <link rel="preload" href="https://abs.twimg.com/k/en/8.pages_home.en.53bd0722cf32209c7937.js" as="script">
+
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
    <style>
@@ -56,7 +57,7 @@
     border-bottom: 5px solid red;
     height: 5px;
     color: #000;
-    background-color: #000; 
+    background-color: #000;
   }
   .btn-primary{
   background-color: red
@@ -68,11 +69,11 @@ div#replyModal {
     padding-right: 15px;
     margin: 0 auto;
     position: absolute;
-    
+
 }
 body{
   font-family: 'Roboto', sans-serif;
-}   
+}
 
    </style>
 
@@ -81,7 +82,7 @@ body{
     {% include "navbar.html" %}
 
     <div class='container'>
-          
+
           {% block content %}
           {% endblock content %}
     </div>
@@ -140,8 +141,8 @@ body{
                   console.log("error")
                   console.log(data)
                 }
-              });          
-            })                
+              });
+            })
 
             $(document.body).on("click", ".retweetBtn", function(e){
               e.preventDefault()
@@ -186,7 +187,7 @@ body{
               $("#replyModal #global-tweet-user-time").text(" " + tweetTime)
               $("#replyModal #global-tweet-content").text(" " + content)
               $("#replyModal #global-tweet-replying").text("Replying to " + username)
-              
+
               $("#replyModal").on("shown.bs.modal", function(){
               $('textarea').focus()
               })
@@ -261,7 +262,7 @@ body{
                 tweetContainer.append(tweetFormattedHtml)
               }
             }
-        
+
             function parseTweets(){
               if (tweetList == 0){
                 tweetContainer.text("No Tweets currently found.")
@@ -303,7 +304,7 @@ body{
                         else{
                           $("#loadmore").css("display", "none")
                         }
-                        
+
                         parseTweets()
                         updateHashLinks()
                         },
@@ -332,7 +333,7 @@ body{
                 // // nextTweetUrl = data.next;
                 parseTweets();
                 updateHashLinks();
-               
+
                },
                error: function(data){
                 console.log("error");
@@ -367,7 +368,7 @@ body{
               charsCurrent = charsStart - tweetValue.length
               var spanChars = $(this).parent().parent().parent().find("span.tweetCharsLeft");
               spanChars.text(charsCurrent);
-              
+
               if(charsCurrent > 0)
               {
                spanChars.removeClass("grey-color");
@@ -384,7 +385,7 @@ body{
              }
              });
 
-          
+
 
             $(".tweet-form").submit(function(event){
               event.preventDefault()
@@ -413,10 +414,10 @@ body{
                   else{
                     console.log("Cannot send, tweet is too long.")
                   }
-              
+
               //fetchTweets()
                 })
-    }   
+    }
     </script>
 
     {% block script %}{% endblock script %}
@@ -451,6 +452,7 @@ body{
 
 
     <script src="{% static 'bootstrap/js/bootstrap.min.js' %}" type="text/javascript" ></script>
+
     <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" ></script> -->
   </body>
 </html>
