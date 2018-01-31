@@ -9,9 +9,10 @@
 {% block content %}
 
 <!DOCTYPE html>
+
 <html lang="en-gb" data-scribe-reduced-action-queue="true">
   <head>
-    
+
     <meta charset="utf-8">
 
     <link rel="stylesheet" href="https://abs.twimg.com/a/1515531216/css/t1/twitter_core.bundle.css" class="coreCSSBundles">
@@ -28,31 +29,35 @@
   <meta name="description" content="Welcome back to Cuckoo. Sign in now to check your notifications, join the conversation and catch up on Tweets from the people you follow.">
 
 
+  <style>
+    body{
+      font-family: "roboto"
+    }
+  </style>
 
 
 
 
-    
   </head>
-  <body class="three-col logged-out" 
+  <body class="three-col logged-out"
 data-fouc-class-names="swift-loading no-nav-banners"
  dir="ltr">
       <script id="swift_loading_indicator" nonce="Es0zvn/tnRlm/G2hW1KXMw==">
         document.body.className=document.body.className+" "+document.body.getAttribute("data-fouc-class-names");
       </script>
 
-    <a href="#timeline" class="u-hiddenVisually focusable">Skip to content</a>  
-    
-    
+    <a href="#timeline" class="u-hiddenVisually focusable">Skip to content</a>
+
+
     <div id="doc"  class="route-login login-responsive">
         <div class="topbar js-topbar">
-    
+
 
     <div class="global-nav global-nav--newLoggedOut" data-section-term="top_nav">
       <div class="global-nav-inner" style="background-color: steelblue;">
         <div class="container">
 
-          
+
 <ul class="nav js-global-actions" role="navigation" id="global-actions">
   <li id="global-nav-home" class="home" data-global-action="home">
     <a class="js-nav js-tooltip js-dynamic-tooltip" data-placement="bottom" href="/" data-component-context="home_nav" data-nav="home">
@@ -73,14 +78,14 @@ data-fouc-class-names="swift-loading no-nav-banners"
   <ul class="nav secondary-nav language-dropdown">
     <li class="dropdown js-language-dropdown">
       <a href="{% url 'register' %}"" class="dropdown-toggle js-dropdown-toggle">
-       <span class="js-current-language"; style="color: white; font-style: Opensans;" >Register</span> 
+       <span class="js-current-language"; style="color: white; font-style: Opensans;" >Register</span>
       </a>
-     
-   
+
+
     </li>
   </ul>
 
-    
+
 </div>
 
         </div>
@@ -91,7 +96,7 @@ data-fouc-class-names="swift-loading no-nav-banners"
 
         <div id="page-outer">
           <div id="page-container" class="AppContent wrapper wrapper-login">
-              
+
             <div class="page-canvas">
 
   <div class="signin-wrapper" data-login-message="">
@@ -104,7 +109,7 @@ data-fouc-class-names="swift-loading no-nav-banners"
     {% if user.is_authenticated %}
     <p>Your account doesn't have access to this page. To proceed,
     please login with an account that has access.</p>
-  
+
     {% endif %}
 {% endif %}
 <form method="post" action="{% url 'login' %}" class="t1-form clearfix signin js-signin" >
@@ -149,7 +154,7 @@ data-fouc-class-names="swift-loading no-nav-banners"
       <input type="checkbox" value="1" name="remember_me" checked="checked">
       Remember me
       <span class="separator">·</span>
-  
+
     </label> -->
   </div>
 </div>
@@ -162,7 +167,7 @@ data-fouc-class-names="swift-loading no-nav-banners"
       New to Cuckoo?
       <a id="login-signup-link" href="{% url 'register' %}">Sign up now&#32;&raquo;</a>
     </p>
-   
+
   </div>
 
 </div>
@@ -170,24 +175,6 @@ data-fouc-class-names="swift-loading no-nav-banners"
           </div>
         </div>
     </div>
-   
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <script src="https://abs.twimg.com/k/en-gb/init.en-gb.0aa8dbebc3cfc543c67e.js" async></script>
 
   </body>

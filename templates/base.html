@@ -2,10 +2,10 @@
 <!doctype html>
 <html lang="en">
   <head>
-    
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title> {% block title %} Cuckoo  {% endblock title %}</title>
@@ -55,7 +55,7 @@
     border-bottom: 5px solid red;
     height: 5px;
     color: #000;
-    background-color: #000; 
+    background-color: #000;
   }
   .btn-primary{
   background-color: red
@@ -67,8 +67,11 @@ div#replyModal {
     padding-right: 15px;
     margin: 0 auto;
     position: absolute;
-    
-}   
+
+}
+body{
+  font-family: "lato";
+}
 
    </style>
 
@@ -77,7 +80,7 @@ div#replyModal {
     {% include "navbar.html" %}
 
     <div class='container'>
-          
+
           {% block content %}
           {% endblock content %}
     </div>
@@ -136,8 +139,8 @@ div#replyModal {
                   console.log("error")
                   console.log(data)
                 }
-              });          
-            })                
+              });
+            })
 
             $(document.body).on("click", ".retweetBtn", function(e){
               e.preventDefault()
@@ -182,7 +185,7 @@ div#replyModal {
               $("#replyModal #global-tweet-user-time").text(" " + tweetTime)
               $("#replyModal #global-tweet-content").text(" " + content)
               $("#replyModal #global-tweet-replying").text("Replying to " + username)
-              
+
               $("#replyModal").on("shown.bs.modal", function(){
               $('textarea').focus()
               })
@@ -257,7 +260,7 @@ div#replyModal {
                 tweetContainer.append(tweetFormattedHtml)
               }
             }
-        
+
             function parseTweets(){
               if (tweetList == 0){
                 tweetContainer.text("No Tweets currently found.")
@@ -299,7 +302,7 @@ div#replyModal {
                         else{
                           $("#loadmore").css("display", "none")
                         }
-                        
+
                         parseTweets()
                         updateHashLinks()
                         },
@@ -328,7 +331,7 @@ div#replyModal {
                 // // nextTweetUrl = data.next;
                 parseTweets();
                 updateHashLinks();
-               
+
                },
                error: function(data){
                 console.log("error");
@@ -363,7 +366,7 @@ div#replyModal {
               charsCurrent = charsStart - tweetValue.length
               var spanChars = $(this).parent().parent().parent().find("span.tweetCharsLeft");
               spanChars.text(charsCurrent);
-              
+
               if(charsCurrent > 0)
               {
                spanChars.removeClass("grey-color");
@@ -380,7 +383,7 @@ div#replyModal {
              }
              });
 
-          
+
 
             $(".tweet-form").submit(function(event){
               event.preventDefault()
@@ -409,10 +412,10 @@ div#replyModal {
                   else{
                     console.log("Cannot send, tweet is too long.")
                   }
-              
+
               //fetchTweets()
                 })
-    }   
+    }
     </script>
 
     {% block script %}{% endblock script %}
