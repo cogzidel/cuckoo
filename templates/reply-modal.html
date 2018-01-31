@@ -1,4 +1,5 @@
 <!-- Modal -->
+
 <div class="modal draggable" id="replyModal" role="alertdialog" aria-labelledby="global-tweet-dialog-header" aria-describedby="global-tweet-dialog-body">
     <div class="js-first-tabstop"></div>
     <!-- <div class="modal-dialog" role="document"> -->
@@ -9,14 +10,14 @@
           <span class="visuallyhidden" aria-hidden="true">&times;</span>
           </span>
         </button>
-        <form class="from tweet-form"> {% csrf_token %} 
+        <form class="from tweet-form"> {% csrf_token %}
           <div class="modal-header">
               <!-- <button type="button" class="modal-btn modal-close js-close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
               <h5 class="modal-title" id="global-tweet-dialog-header">Modal title</h5>
           </div>
 
           <div class="modal-body modal-tweet" id="global-tweet-dialog-body">
-                <div class="content"> 
+                <div class="content">
                         <div class="stream-item-header">
                             <img class="account-group" src="https://pbs.twimg.com/profile_images/940421118682370048/29vCHEcW_bigger.jpg" alt></img>
                             <span class="FullNameGroup">
@@ -31,11 +32,11 @@
                         </div>
                         <div class="AdaptiveMedia AdaptiveMedia--hiddenWhenNotExpanded is-square " style="max-width:471px;">
                         </div>
-                </div>               
+                </div>
 
           </div>
 
-          <div class="modal-tweet-form-container">      
+          <div class="modal-tweet-form-container">
             <textarea aria-hidden="true" id='tweetReplyArea' class='form-control' name='content' style="margin: 10px 20px 10px 10px; width: 472px; height: 113px;"></textarea>
           </div>
 

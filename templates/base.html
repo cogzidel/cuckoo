@@ -35,7 +35,7 @@
     <link rel="preload" href="https://abs.twimg.com/k/en/init.en.635d4f4795f804db92fe.js" as="script">
     <link rel="preload" href="https://abs.twimg.com/k/en/0.commons.en.26a13b153a8ffb218234.js" as="script">
     <link rel="preload" href="https://abs.twimg.com/k/en/8.pages_home.en.74e82bfe24cb747ed186.js" as="script">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:700" rel="stylesheet">
 
    <style>
      .red-color {
@@ -68,11 +68,26 @@ div#replyModal {
     padding-right: 15px;
     margin: 0 auto;
     position: absolute;
-    
+
 }
+.username::first-letter, .ProfileHeaderCard-name::first-letter, #replyModal::first-letter{
+    /* margin: 15px; */
+    font-family:lato;
+    font-style: normal;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .who_to_follow{
+    font-family:lato;
+    font-style: normal;
+    font-weight: bold;
+  }
+  /* style="margin: 15px; font-family:lato; font-style: normal; font-weight: bold; text-transform: uppercase;" */
+
 body{
-  font-family: 'Roboto', sans-serif;
-}   
+  font-family: 'Lato', sans-serif;
+}
 
    </style>
 
@@ -173,7 +188,7 @@ body{
               e.preventDefault()
               var this_ =$(this)
               var parentId = this_.attr("data-id")
-              var username = this_.attr("data-user")
+              var username = this_.attr("data-user").charAt(0).toUpperCase() + this_.attr("data-user").slice(1);
               var content = this_.parent().parent().find(".content").text()
               var tweetTime = this_.attr("data-time")
               console.log("replyModal")

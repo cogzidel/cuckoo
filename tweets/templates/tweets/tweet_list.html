@@ -3,7 +3,7 @@
 {% block script %}
 <script>
 	$(document).ready(function(){
-		
+
 		loadTweetContainer("tweet-container")
 		alert(object.profile.get_following.count);
 		});
@@ -11,18 +11,24 @@
 {% endblock script %}
 
 {% block content %}
-	
+<!-- <style>
+		.username::first-letter{
+			margin: 15px;
+			font-family:lato; font-style: normal; font-weight: bold; text-transform: uppercase;
+		}
+	/* style="margin: 15px; font-family:lato; font-style: normal; font-weight: bold; text-transform: uppercase;" */
+</style> -->
 				<div class='row'>
-					<div class=' col-sm-3 col-xs-12' style='background-color:rgb(70, 129, 180); height: 200px;'>
-						<h1 style="margin: 15px; ">{{ request.user }}</h1>
-						 <div class="ProfileCardStats" style= margin-top: 10px">
+					<div class=' col-sm-3 col-xs-12' style='background-color:white; height: 500px; box-shadow: 1px 1.5px 1px 1.5px #888888 '>
+						<h1 class="username">{{ request.user }}</h1>
+						 <div class="ProfileCardStats">
 								    <ul class="ProfileCardStats-statList Arrange Arrange--bottom Arrange--equal"><li class="ProfileCardStats-stat Arrange-sizeFit">
-								        <a class="ProfileCardStats-statLink u-textUserColor u-linkClean u-block js-nav js-tooltip"
+								        <a style="font-family:lato; font-style: normal; font-weight: bold;" class="ProfileCardStats-statLink u-textUserColor u-linkClean u-block js-nav js-tooltip"
 								            title="3 Tweets"
-								            
+
 								            data-element-term="tweet_stats">
-								          <span class="ProfileCardStats-statLabel u-block" style="color: black">Tweet</span>
-								          <span class="ProfileCardStats-statValue" style="color: white;s" >4{{ object.profile.get_following.count}}</span>
+								          <span   class="ProfileCardStats-statLabel u-block" style="color: black">Tweet</span>
+								          <span  class="ProfileCardStats-statValue" style="color: whites" >4</span>
 								          <!-- console.log("following count"+ {{object.followed_by.all.count}}) -->
 
 								        </a>
@@ -31,23 +37,21 @@
 								              title="69 Following"
 								              data-element-term="following_stats">
 								            <span class="ProfileCardStats-statLabel u-block" style="color: black">Following</span>
-								            <span class="ProfileCardStats-statValue" data-count= data-is-compact="false" style="color: white">3</span>
+								            <span class="ProfileCardStats-statValue" data-count= data-is-compact="false" style="color: black">3</span>
 								          </a>
 								        </li><li class="ProfileCardStats-stat Arrange-sizeFit">
 								          <a class="ProfileCardStats-statLink u-textUserColor u-linkClean u-block js-nav js-tooltip"
-								              title="14 Followers"
-								              
-								              data-element-term="follower_stats">
-								            <span class="ProfileCardStats-statLabel u-block" style="color: black">Followers</span>
-								            <span class="ProfileCardStats-statValue" data-count= data-is-compact="false" style="color: white">4</span>
+								              title="14 Followers" data-element-term="follower_stats">
+								            <span  class="ProfileCardStats-statLabel u-block" style="color: black">Follower</span>
+								            <span class="ProfileCardStats-statValue" data-count= data-is-compact="false" style="color: black">4</span>
 								          </a>
 								        </li>
 								    </ul>
   						</div>
   					</div>
-  					
- 
-					
+
+
+
 					<div class='col-sm-6'>
 						<div>
 								{% if not request.GET.q %}
@@ -59,22 +63,23 @@
 								{% endif %}
 							</div>
 						<div style='background-color:rgb(255, 255, 255); padding-left: 15px;'  >
-							
 
-						<div id='tweet-container' data-url='/api/tweet/'> 
+
+						<div id='tweet-container' data-url='/api/tweet/'>
 
 						</div>
 						<a href='#' id='loadmore'>Load More Tweets</a>
 						</div>
-						
 				</div>
+					<div class='col-sm-3' style="height: 500px; margin-top: 10px; background-color:white; box-shadow: 1px 1.5px 1px 1.5px #888888;">
 
-					<div class='col-sm-3' style="height: 200px; margin-top: 10px; background-color:rgb(70, 129, 180);">
-						<h1 style="margin: 10px">Who to Follow</h1>
-						<div style="border: 1px solid #1da1f2;margin: 10px; border-radius: 15px; text-decoration-color: white; background-color: white/*#1da1f2*/;width: 50%; display: inline-block;text-align: center; color: white">
-							<a> {% recommended request.user%} </a>
-						</div>	
-						
+						<h1 class="who_to_follow" style="margin: 10px">Who to Follow</h1>
+						<div style="border: 1px solid #1da1f2;margin: 10px; border-radius: 15px; text-decoration-color: white; background-color: white/*#1da1f2*/;width: 90%; display: inline-block;text-align: center; color: white">
+
+							<a> <img src="http://laoblogger.com/images/default-profile-picture-5.jpg" alt="" width="48" height="48">{% recommended request.user%} </a>
+							console.Log(recommended request.user.count)
+						</div>
+
 					</div>
 				</div>
 {% endblock content %}
