@@ -16,6 +16,12 @@
       <meta name="robots" content="NOODP">
   <meta name="description" content="Join Cuckoo today - it only takes a few seconds. Connect with your friends and other fascinating people. Get in-the-moment updates on the things that interest you.">
 
+
+
+
+
+
+
   </head>
   <body class="three-col logged-out"
 data-fouc-class-names="swift-loading no-nav-banners"
@@ -29,50 +35,9 @@ data-fouc-class-names="swift-loading no-nav-banners"
 
     <div id="doc"  class="route-login login-responsive">
         <div class="topbar js-topbar">
-
-
-
-    <div class="global-nav global-nav--newLoggedOut" data-section-term="top_nav">
-      <div class="global-nav-inner">
-        <div class="container">
-
-
-<ul class="nav js-global-actions" role="navigation" id="global-actions">
-  <li id="global-nav-home" class="home" data-global-action="home">
-    <a class="js-nav js-tooltip js-dynamic-tooltip" data-placement="bottom" href="/" data-component-context="home_nav" data-nav="home">
-      <span class="Icon Icon--bird Icon--large" style="background-image:none !important; "></span>
-      <span class="text" aria-hidden="true">Cuckoo</span>
-      <span class="u-hiddenVisually a11y-inactive-page-text">Cuckoo</span>
-      <!-- <span class="u-hiddenVisually a11y-active-page-text">Home, current page.</span> -->
-    </a>
-  </li>
-   <!--  <li id="global-nav-about" class="about" data-global-action="about">
-      <a class="js-tooltip js-dynamic-tooltip" data-placement="bottom" href="/about" target="_blank" data-component-context="about_nav" data-nav="about" rel="noopener">
-        <span class="text">About</span>
-      </a>
-    </li> -->
-</ul>
-<div class="pull-right nav-extras">
-
-  <ul class="nav secondary-nav language-dropdown">
-    <li class="dropdown js-language-dropdown">
-      <a href="{% url 'login' %}"" class="dropdown-toggle js-dropdown-toggle">
-       <span class="js-current-language">Login</span>
-      </a>
-
-
-    </li>
-  </ul>
-
-
-</div>
-
+            {% include "navbar.html" %}
+          </div>
         </div>
-
-      </div>
-    </div>
-</div>
-
 
     <div class="row">
 	<div class="col-sm-6 col-sm-offset-3">
