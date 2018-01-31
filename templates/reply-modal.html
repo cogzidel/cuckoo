@@ -1,5 +1,5 @@
 <!-- Modal -->
-<div class="modal draggable" id="global-tweet-dialog-dialog" role="alertdialog" aria-labelledby="global-tweet-dialog-header" aria-describedby="global-tweet-dialog-body" style="top: -180%; left: 360px;">
+<div class="modal draggable" id="replyModal" role="alertdialog" aria-labelledby="global-tweet-dialog-header" aria-describedby="global-tweet-dialog-body">
     <div class="js-first-tabstop"></div>
     <!-- <div class="modal-dialog" role="document"> -->
 
@@ -9,7 +9,7 @@
           <span class="visuallyhidden" aria-hidden="true">&times;</span>
           </span>
         </button>
-        <form class="from tweet-form"> {% csrf_token %}
+        <form class="from tweet-form"> {% csrf_token %} 
           <div class="modal-header">
               <!-- <button type="button" class="modal-btn modal-close js-close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
               <h5 class="modal-title" id="global-tweet-dialog-header">Modal title</h5>
