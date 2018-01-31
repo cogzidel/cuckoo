@@ -85,6 +85,7 @@ data-fouc-class-names="swift-loading no-nav-banners"
 </div>
 
         </div>
+    
       </div>
     </div>
 </div>
@@ -96,7 +97,6 @@ data-fouc-class-names="swift-loading no-nav-banners"
         <h1>
           Join Cuckoo today.
         </h1>
-		
 	<form class='form {% if form_class %}{{ form_class }}{% endif %}' action="{% if action_url %}{{ action_url }}{% endif %}" method="POST">
 	{% csrf_token %}
     {{ form | crispy }}

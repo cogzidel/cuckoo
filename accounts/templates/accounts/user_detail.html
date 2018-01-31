@@ -51,7 +51,7 @@
 					<div class="Grid-cell">
 						<div class="ProfileSidebar ProfileSidebar--withLeftAlignment">
 											
-  							<h1 class="ProfileHeaderCard-name" >Following <small>{{ object.profile.get_following.count }}</small></h1>
+  							<h1 class="ProfileHeaderCard-name" >Following <small>{{ object.profile.get_following.count}}</small></h1>
 							   	<!--  {{ object.profile.following}} -->
 							{% for user in object.profile.get_following %}
 							  <a style="margin: 5px; border: 2px solid #1da1f2; border-radius: 15px;color: black;background-color: #1da1f2; width: 50%;display: inline-block;text-align: center;"  href='/{{ user.username}}'>{{ user.username }}</a><br/>
