@@ -10,20 +10,21 @@
 {% endblock script %}
 
 
-{% block content %} 
-
+{% block content %}
+<div id="page-outer">
+<div id="page-container" class="AppContent wrapper wrapper-home">
 <div class='Grid Grid--withGutter'>
 	<div class='Grid-cell u-size1of3 u-lg-size1of4' style="background-color: rgb(70, 129, 180);">
 		<div class="Grid Grid--withGutter">
 			<div class="Grid-cell">
 				<div class="ProfileSidebar ProfileSidebar--withLeftAlignment">
-					<h1 class="ProfileHeaderCard-name" style="margin-top: 5px">{{ object.username }}</h1> 
+					<h1 class="ProfileHeaderCard-name" style="margin-top: 5px">{{ object.username }}</h1>
 					<p class="ProfileHeaderCard-screenname u-inlineBlock u-dir" style="margin-top: 15px"> Followers: {{object.followed_by.all.count}}
 					</p>
 					<p>
 						<a class='btn btn-link' style="margin-top: 10px;text-decoration-color:  white; border: 1px solid #1da1f2; padding: 10px; border-radius: 25px; color: black; background-color: #1da1f2;" href='{{ object.profile.get_follow_url }}'>{% if following %}Unfollowing{% else %}Follow{% endif %}
 						</a>
-					</p>		
+					</p>
 
 				</div>
 			</div>
@@ -50,7 +51,7 @@
 				<div class="Grid Grid--withGutter" style="background-color: rgb(70, 129, 180);">
 					<div class="Grid-cell">
 						<div class="ProfileSidebar ProfileSidebar--withLeftAlignment">
-											
+
   							<h1 class="ProfileHeaderCard-name" >Following <small>{{ object.profile.get_following.count}}</small></h1>
 							   	<!--  {{ object.profile.following}} -->
 							{% for user in object.profile.get_following %}
@@ -59,7 +60,7 @@
 							  <h4 class="ProfileHeaderCard-screenname u-inlineBlock u-dir" style="margin-top: -10px"> Not following  users </h4>
 							    {% endfor %}
 
-							  <h1 class="ProfileHeaderCard-name"  style="margin-top: 10px">Followed By</h1>	
+							  <h1 class="ProfileHeaderCard-name"  style="margin-top: 10px">Followed By</h1>
 							   <!--  {{ object.profile.following}} -->
 							{% for profile in object.followed_by.all %}
 							 <a style="margin: 5px;border: 1px solid #1da1f2; border-radius: 15px; color: black; background-color: #1da1f2;width: 50%; display: inline-block;text-align: center;"  href='/{{ profile.user.username}}'>{{ profile.user.username }}</a>
@@ -72,5 +73,7 @@
 			</div>
 		</div>
 	</div>
-		
+</div>
+</div>
+
  {% endblock content %}
