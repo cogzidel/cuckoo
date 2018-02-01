@@ -14,7 +14,8 @@
 <div id="page-outer">
 <div id="page-container" class="AppContent wrapper wrapper-home">
 	<div class='row'>
-		<div class=' col-sm-3 col-xs-12' style='background-color:rgb(70, 129, 180); height: 200px;'>
+
+		<div class=' col-sm-3 col-xs-12' style='background-color:white; height: 500px; box-shadow: 1px 1.5px 1px 1.5px #888888;'>
 			<h1 style="margin: 15px; ">{{ request.user }}</h1>
 			 <div class="ProfileCardStats" style= margin-top: 10px">
 							<ul class="ProfileCardStats-statList Arrange Arrange--bottom Arrange--equal"><li class="ProfileCardStats-stat Arrange-sizeFit">
@@ -23,7 +24,7 @@
 
 											data-element-term="tweet_stats">
 										<span class="ProfileCardStats-statLabel u-block" style="color: black">Tweet</span>
-										<span class="ProfileCardStats-statValue" style="color: white;s" >4{{ object.profile.get_following.count}}</span>
+										<span class="ProfileCardStats-statValue" style="color: black" >4{{ object.profile.get_following.count}}</span>
 										<!-- console.log("following count"+ {{object.followed_by.all.count}}) -->
 
 									</a>
@@ -32,7 +33,7 @@
 												title="69 Following"
 												data-element-term="following_stats">
 											<span class="ProfileCardStats-statLabel u-block" style="color: black">Following</span>
-											<span class="ProfileCardStats-statValue" data-count= data-is-compact="false" style="color: white">3</span>
+											<span class="ProfileCardStats-statValue" data-count= data-is-compact="false" style="color: black">3</span>
 										</a>
 									</li><li class="ProfileCardStats-stat Arrange-sizeFit">
 										<a class="ProfileCardStats-statLink u-textUserColor u-linkClean u-block js-nav js-tooltip"
@@ -40,7 +41,7 @@
 
 												data-element-term="follower_stats">
 											<span class="ProfileCardStats-statLabel u-block" style="color: black">Followers</span>
-											<span class="ProfileCardStats-statValue" data-count= data-is-compact="false" style="color: white">4</span>
+											<span class="ProfileCardStats-statValue" data-count= data-is-compact="false" style="color: black">4</span>
 										</a>
 									</li>
 							</ul>
@@ -70,10 +71,18 @@
 
 	</div>
 
-		<div class='col-sm-3' style="height: 200px; margin-top: 10px; background-color:rgb(70, 129, 180);">
+		<div class='col-sm-3' style="height: 500px; margin-top: 10px; background-color:white; box-shadow: 1px 1.5px 1px 1.5px #888888">
 			<h1 style="margin: 10px">Who to Follow</h1>
-			<div style="border: 1px solid #1da1f2;margin: 10px; border-radius: 15px; text-decoration-color: white; background-color: white/*#1da1f2*/;width: 50%; display: inline-block;text-align: center; color: white">
-				<a> {% recommended request.user%} </a>
+			<div style="border: 1px solid #1da1f2;margin: 10px; border-radius: 15px; text-decoration-color: white; background-color: white/*#1da1f2*/;width: 90%; display: inline-block;text-align: center; color: white">
+
+					<a> <img class="image" src="http://www.thehindu.com/sci-tech/technology/internet/article17759222.ece/alternates/FREE_660/02th-egg-person" alt="" width=48px; height=48px;"> {% recommended request.user%} </a>
+			
+				<style>
+					.image{
+						border-radius: 100%;
+
+					}
+				</style>
 			</div>
 
 		</div>

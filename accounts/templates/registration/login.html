@@ -9,6 +9,7 @@
 {% block content %}
 
 <!DOCTYPE html>
+
 <html lang="en-gb" data-scribe-reduced-action-queue="true">
   <head>
 
@@ -23,9 +24,24 @@
     <link rel="preload" href="https://abs.twimg.com/k/en-gb/init.en-gb.0aa8dbebc3cfc543c67e.js" as="script">
     <link rel="preload" href="https://abs.twimg.com/k/en-gb/0.commons.en-gb.cf50ad922f8e5cf8b01f.js" as="script">
 
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
       <title>Login on Cuckoo</title>
       <meta name="robots" content="NOODP">
   <meta name="description" content="Welcome back to Cuckoo. Sign in now to check your notifications, join the conversation and catch up on Tweets from the people you follow.">
+
+
+  <style>
+  div .login{
+    font-family: "lato"
+    font-style:normal;
+    font-weight: bold;
+  }
+    /* body{
+      font-family: "Lato"
+    } */
+  </style>
+
+
 
 
   </head>
@@ -40,7 +56,8 @@ data-fouc-class-names="swift-loading no-nav-banners"
 
 
     <div id="doc"  class="route-login login-responsive">
-        <div class="topbar js-topbar" style="background-color: #2196f3;">
+        <div class="topbar js-topbar">
+
 
     <div class="global-nav global-nav--newLoggedOut" style="background-image: url(../../img/t1/lohp_streams_header_bg_v4.png);" data-section-term="top_nav">
       <div class="global-nav-inner" style="background-color: #2196f3;">
@@ -88,8 +105,8 @@ data-fouc-class-names="swift-loading no-nav-banners"
 
             <div class="page-canvas">
 
-  <div class="signin-wrapper" data-login-message="">
-    <h1>Log in to Cuckoo</h1>
+  <div class="signin-wrapper" data-login-message="" style="font-family:lato; font-style: normal;">
+    <h1 class="login" style="font-family:lato; font-style: normal; font-weight: bold">Log in to Cuckoo</h1>
     {% if form.errors %}
 <p>Your username and password didn't match. Please try again.</p>
 {% endif %}

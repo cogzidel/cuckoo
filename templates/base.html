@@ -71,8 +71,23 @@ div#replyModal {
     position: absolute;
 
 }
+.username::first-letter, .ProfileHeaderCard-name::first-letter, #replyModal::first-letter{
+    /* margin: 15px; */
+    font-family:lato;
+    font-style: normal;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .who_to_follow{
+    font-family:lato;
+    font-style: normal;
+    font-weight: bold;
+  }
+  /* style="margin: 15px; font-family:lato; font-style: normal; font-weight: bold; text-transform: uppercase;" */
+
 body{
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Lato', sans-serif;
 }
 
    </style>
@@ -174,7 +189,7 @@ body{
               e.preventDefault()
               var this_ =$(this)
               var parentId = this_.attr("data-id")
-              var username = this_.attr("data-user")
+              var username = this_.attr("data-user").charAt(0).toUpperCase() + this_.attr("data-user").slice(1);
               var content = this_.parent().parent().find(".content").text()
               var tweetTime = this_.attr("data-time")
               console.log("replyModal")
@@ -240,7 +255,10 @@ body{
               verb = 'Unlike'
             }
 
-            tweetContent = "<span class='content'>" + tweetValue.content + "</span> <br/> via <a href='" + tweetValue.user.url + "'>" + tweetValue.user.username + "</a> | " + tweetValue.date_display + " | " + " <a href='/tweet/" + tweetValue.id + "'>View</a> | " + " <a class='retweetBtn' href='/tweet/" + tweetValue.id + "/retweet/'>Retweet</a>" + " | <a href='#' class='tweet-like' data-id='" + tweetValue.id + "''>" + verb + "(" + tweetValue.likes + ")</a>" + " | <a class='tweet-reply' data-time='" + tweetValue.date_display + "' data-user='" + tweetValue.user.username + "'data-id='" + replyId + "'' >Reply</a>";
+            tweetContent = "<span class='content'>" + tweetValue.content + "</span> <br/> via <a href='" + tweetValue.user.url + "'>" + tweetValue.user.username + "</a> | " + tweetValue.date_display + " | " + <div> <a href='/tweet/" + tweetValue.id + "'>View</a> | " + " <a class='retweetBtn' href='/tweet/" + tweetValue.id + "/retweet/'>Retweet</a>" + " | <a href='#' class='tweet-like' data-id='" + tweetValue.id + "''>" + verb + "(" + tweetValue.likes + ")</a>" + " | <a class='tweet-reply' data-time='" + tweetValue.date_display + "' data-user='" + tweetValue.user.username + "'data-id='" + replyId + "'' >Reply</a> </div>;
+          </div>;
+            <div>
+              tweetContent = "<span class='content'>"
 
             if (preContent){
               container = openingContainerDiv + "<div class=\"media-body\">" + preContent + tweetContent + "</div></div><hr/>"

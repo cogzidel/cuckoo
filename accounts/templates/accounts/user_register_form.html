@@ -6,10 +6,11 @@
 
 {% block content %}
 
+
 <!DOCTYPE html>
 <html lang="en-gb" data-scribe-reduced-action-queue="true">
   <head>
-
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <meta charset="utf-8">
       <title>Join on Cuckoo</title>
       <meta name="robots" content="NOODP">
@@ -40,8 +41,8 @@ data-fouc-class-names="swift-loading no-nav-banners"
 
     <div class="row">
 	<div class="col-sm-6 col-sm-offset-3">
-		<div class="signup-wrapper">
-        <h1>
+		<div class="signup-wrapper" style="font-family:lato; font-style: normal;">
+        <h1 style="font-family:lato; font-style: normal; font-weight: bold">
           Join Cuckoo today.
         </h1>
 	<form class='form {% if form_class %}{{ form_class }}{% endif %}' action="{% if action_url %}{{ action_url }}{% endif %}" method="POST">
