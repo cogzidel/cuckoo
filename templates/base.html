@@ -84,9 +84,15 @@ div#replyModal {
     font-style: normal;
     font-weight: bold;
   }
-  span.glyphicon glyphicon-star{
+  span.contents{
     display: inline-block;
     padding: 10px;
+  }
+  .a{
+    padding: 2px;
+  }
+  .tweetview,.retweetBtn,.tweet-reply,.tweet-like{
+    padding-right: 50px;
   }
   /* style="margin: 15px; font-family:lato; font-style: normal; font-weight: bold; text-transform: uppercase;" */
 
@@ -152,8 +158,12 @@ body{
                 success: function(data){
                   if (data.liked){
                     this_.text("Liked")
+                    $(".tweet-like").removeClass("glyphicon glyphicon-heart-empty");
+                     $(".tweet-like").addClass("glyphicon glyphicon-heart")
                   } else {
                     this_.text("UnLiked")
+                     $(".tweet-like").addClass("glyphicon glyphicon-heart-empty");
+
                   }
                 },
                 error: function(data){
@@ -260,7 +270,7 @@ body{
             }
 
             // tweetContent = "<span class='content'>" + tweetValue.content + "</span> <br/> via <a href='" + tweetValue.user.url + "'>" + tweetValue.user.username + "</a> | " + tweetValue.date_display + " | " + " <a href='/tweet/" + tweetValue.id + "'>View</a> | " + " <a class='retweetBtn' href='/tweet/" + tweetValue.id + "/retweet/'>Retweet</a>" + " | <a href='#' class='tweet-like' data-id='" + tweetValue.id + "''>" + verb + "(" + tweetValue.likes + ")</a>" + " | <a class='tweet-reply' data-time='" + tweetValue.date_display + "' data-user='" + tweetValue.user.username + "'data-id='" + replyId + "'' >Reply</a>";
-            tweetContent = "<span class='content'>" + tweetValue.content + "</span> <br/> via <a href='" + tweetValue.user.url + "'>" + tweetValue.user.username + "</a> | " + tweetValue.date_display + " | " + " <br/><span class='glyphicon glyphicon-envelope'>  <a href='/tweet/" + tweetValue.id + "'>View</a> | " + " <a class='retweetBtn' href='/tweet/" + tweetValue.id + "/retweet/'>Retweet</a>" + " | <a href='#' class='tweet-like' data-id='" + tweetValue.id + "''>" + verb + "(" + tweetValue.likes + ")</a>" + " | <a class='tweet-reply' data-time='" + tweetValue.date_display + "' data-user='" + tweetValue.user.username + "'data-id='" + replyId + "'' >Reply</a></span>";
+            tweetContent = "<span class='content'>" + tweetValue.content + "</span> <br/> via <a href='" + tweetValue.user.url + "'>" + tweetValue.user.username + "</a> | " + tweetValue.date_display + " | " + " <br/><span class='contents'>   <a class='tweetview glyphicon glyphicon-envelope' href='/tweet/" + tweetValue.id + "'></a>" + " <a class='retweetBtn glyphicon glyphicon-retweet' href='/tweet/" + tweetValue.id + "/retweet/'> </a>" + "  <a href='#' id='tweet_like' class='tweet-like glyphicon glyphicon-heart-empty ' data-id='" + tweetValue.id + "''>" + verb + "(" + tweetValue.likes + ")</a>" + "  <a class='tweet-reply glyphicon glyphicon-comment' data-time='" + tweetValue.date_display + "' data-user='" + tweetValue.user.username + "'data-id='" + replyId + "'' ></a></span>";
 
 
           // </div>;
