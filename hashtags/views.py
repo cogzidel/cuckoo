@@ -7,8 +7,8 @@ from .models import HashTag
 
 # Create your views here.
 class HashTagView(View):
-	
+
 	def get(self, request, hashtag, *args, **kwargs):
 		obj, create = HashTag.objects.get_or_create(tag=hashtag)
-		return render(request, 'hashtags/tag_view.html', {'obj': obj})
-
+		hashtags = HashTag.objects.all().order_by('-id')[:10]
+		return render(request, 'hashtags/tag_view.html', {'obj': obj, "hashtags":hashtags})
