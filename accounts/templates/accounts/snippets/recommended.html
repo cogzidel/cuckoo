@@ -1,4 +1,4 @@
-
+{% load static %}
 {% for profile in recommended %}
 <style>
   .image{
@@ -18,7 +18,7 @@
 <table style="width:20%">
 
    <tr class="table_who_to_follow">
-    <td><ahref='/{{ profile.user.username}}'> <img class="image w3-card-4" src="https://www.thehindu.com/sci-tech/technology/internet/article17759222.ece/alternates/FREE_660/02th-egg-person" href='/{{ profile.user.username}}'></a></td>
+    <td><ahref='/{{ profile.user.username}}'> <img class="image w3-card-4" src="{%static 'bootstrap/img/default_user.jpg'%}" href='/{{ profile.user.username}}'></a></td>
 
     <td><a href='/{{ profile.user.username}}'>  {{ profile.user.username }}</a></td>
 
