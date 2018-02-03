@@ -1,0 +1,38 @@
+
+{% for profile in recommended %}
+<style>
+  .image{
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    /* padding-right: 5px; */
+  }
+  a .image {
+    float: left;
+  }
+  .table_who_to_follow{
+    padding-bottom: 50px;
+  }
+</style>
+<table style="width:20%">
+
+   <tr class="table_who_to_follow">
+    <td><ahref='/{{ profile.user.username}}'> <img class="image w3-card-4" src="http://www.thehindu.com/sci-tech/technology/internet/article17759222.ece/alternates/FREE_660/02th-egg-person" href='/{{ profile.user.username}}'></a></td>
+
+    <td><a href='/{{ profile.user.username}}'>  {{ profile.user.username }}</a></td>
+
+  </tr>
+
+</table>
+
+{% empty %}
+<p class="lead"> Not followed by  any users </p>
+{% endfor %}
+
+
+<!-- {% for profile in recommended %}
+<a href='/{{ profile.user.username}}'>{{ profile.user.username }}</a><br/>
+{% empty %}
+<p class="lead"> Not followed by  any users </p>
+{% endfor %} -->

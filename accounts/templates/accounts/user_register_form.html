@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}Register | {{ block.super }}{% endblock title %}
+
+{% block content %}
+
+
+<!DOCTYPE html>
+<html lang="en-gb" data-scribe-reduced-action-queue="true">
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <meta charset="utf-8">
+      <title>Join on Cuckoo</title>
+      <meta name="robots" content="NOODP">
+  <meta name="description" content="Join Cuckoo today - it only takes a few seconds. Connect with your friends and other fascinating people. Get in-the-moment updates on the things that interest you.">
+
+
+
+
+
+
+
+  </head>
+  <body class="three-col logged-out"
+data-fouc-class-names="swift-loading no-nav-banners"
+ dir="ltr">
+      <script id="swift_loading_indicator" nonce="Es0zvn/tnRlm/G2hW1KXMw==">
+        document.body.className=document.body.className+" "+document.body.getAttribute("data-fouc-class-names");
+      </script>
+
+    <a href="#timeline" class="u-hiddenVisually focusable">Skip to content</a>
+
+
+    <div id="doc"  class="route-login login-responsive">
+        <div class="topbar js-topbar">
+            {% include "navbar.html" %}
+          </div>
+        </div>
+
+    <div class="row">
+	<div class="col-sm-6 col-sm-offset-3">
+		<div class="signup-wrapper" style="font-family:lato; font-style: normal;">
+        <h1 style="font-family:lato; font-style: normal; font-weight: bold">
+          Join Cuckoo today.
+        </h1>
+	<form class='form {% if form_class %}{{ form_class }}{% endif %}' action="{% if action_url %}{{ action_url }}{% endif %}" method="POST">
+	{% csrf_token %}
+    {{ form | crispy }}
+
+  <button type="submit" class="submit EdgeButton EdgeButton--primary EdgeButtom--medium">Join Now</button>
+</form>
+</div>
+	</div>
+</div>
+
+
+
+
+    <script src="https://abs.twimg.com/k/en/init.en.8740c50b34f92abd043c.js" async></script>
+
+  </body>
+</html>
+
+
+{% endblock content %}

@@ -1,0 +1,47 @@
+<!-- Modal -->
+<div class="modal draggable" id="replyModal" role="alertdialog" aria-labelledby="global-tweet-dialog-header" aria-describedby="global-tweet-dialog-body">
+    <div class="js-first-tabstop"></div>
+
+    <div class="modal-content" role="document">
+        <button type="button" class="modal-btn modal-close js-close" data-dismiss="modal" aria-label="Close">
+          <span class="Icon Icon--close Icon--medium">
+          <span class="visuallyhidden" aria-hidden="true">&times;</span>
+          </span>
+        </button>
+        <form class="from tweet-form"> {% csrf_token %}
+          <div class="modal-header">
+
+              <h5 class="modal-title" id="global-tweet-dialog-header">Modal title</h5>
+          </div>
+
+          <div class="modal-body modal-tweet" id="global-tweet-dialog-body">
+                <div class="content">
+                          <div class="stream-item-header">
+                            <img class="account-group" src="http://www.thehindu.com/sci-tech/technology/internet/article17759222.ece/alternates/FREE_660/02th-egg-person" style="border-radius:1px" height="50em" width="50em" alt></img>
+                            <span class="FullNameGroup">
+                                <strong class="" id="global-tweet-user"></strong>
+                                <span>‏ </span>
+                                <span class="Icon Icon--verified"></span>
+                                <small id="global-tweet-user-time"> time </small>
+                            </span>
+                        </div>
+                        <div class="js-tweet-text-container">
+                              <p id ="global-tweet-content"></p>
+                        </div>
+                        <div class="AdaptiveMedia AdaptiveMedia--hiddenWhenNotExpanded is-square " style="max-width:471px;">
+                        </div>
+                </div>
+
+          </div>
+
+          <div class="modal-tweet-form-container">
+            <textarea aria-hidden="true" id='tweetReplyArea' class='form-control' name='content' style="margin: 10px 20px 10px 10px; width: 472px; height: 113px;"></textarea>
+          </div>
+
+          <div class="TweetBoxToolbar-tweetButton tweet-button">
+            <input type="button" class="EdgeButton EdgeButton-primary" data-dismiss="modal" value='Close' style="margin-right:  5px;margin-left:  5px;margin-bottom: 5px;">
+            <input type="submit" class="EdgeButton EdgeButton-primary disabled" value='Reply' name="reply" style="margin-right:  5px;margin-left:  5px;margin-bottom: 5px;">
+          </div>
+        </form>
+    </div>
+</div>
