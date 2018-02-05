@@ -117,8 +117,8 @@
           </div>
 
           {% else %}
-          <div class="pull-right nav-extras">
-            <ul class="nav right-actions">
+          <div class="pull-right nav-extras" style="margin-top:7px;">
+            <ul class="nav right-actions" style="margin-top:7px;">
               <li><a href="{% url 'login' %}">Login</a></li>
               <li><a href="{% url 'register' %}">Register</a></li>
             </ul>
@@ -132,48 +132,3 @@
       </div>
   </div>
 </div>
-
-
-<!--
-<nav class="navbar navbar-default" style="background-color: steelblue;" >
-  <div class="container" style="background-color: steelblue;"> -->
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <!-- <div class="navbar-header" style="background-color: steelblue;">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" style="color: #fff9ef" href="{% url 'home' %}">Cuckoo</a>
-    </div> -->
-
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="background-color: steelblue;">
-      {% if request.user.is_authenticated %}
-
-       <ul class="nav navbar-nav navbar-right">
-          {% include "tweets/search_form.html" %}
-        <li class="dropdown">
-          <a style="text-align: center; margin-top: 10px; font-size: 20px; background-color: steelblue; color: white" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account </a>
-          <ul class="dropdown-menu">
-            <li><a style="color: black" href="{{ request.user.profile.get_absolute_url }}">Profile</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a style="color: black" href="{% url 'logout' %}">Log out</a></li>
-          </ul>
-        </li>
-      </ul>
-
-      {% else %}
-
-      <ul class="nav navbar-nav navbar-right">
-
-             <li><a href="{% url 'login' %}">Login</a></li>
-               <li><a href="{% url 'register' %}">Register</a></li>
-          </ul>
-
-      {% endif %}
-    </div><! /.navbar-collapse -->
-  <!-- </div><!- /.container-fluid -->
-<!-- </nav> --> --> -->
