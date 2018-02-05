@@ -22,19 +22,21 @@
 <div id="page-outer">
 	<div id="page-container" class="AppContent wrapper wrapper-home">
 		<div class='Grid Grid--withGutter'>
-			<div class='Grid-cell u-size1of3 u-lg-size1of4' style="background-color: white; box-shadow: 1px 1.5px 1px 1.5px #888888">
+			<div class='Grid-cell u-size1of3 u-lg-size1of4' style="background-color: white; border-radius:15px; box-shadow: 1px 1.5px 1px 1.5px #888888">
 				<div class="Grid Grid--withGutter">
-					<div class="Grid-cell">
-						<div class="ProfileSidebar ProfileSidebar--withLeftAlignment" style="background-color:#1da1f2">
-							<h1 class="ProfileHeaderCard-name" style="margin-top: 15px; box-shadow:1px 1.5px 1px 1.5px #888888; height:15px;width:15px">{{ object.username }}</h1>
+					<div class="Grid-cell" style="height:400px">
+						<div class="backgrount__profile__color" style="background-color:#1DA1F2; height:40%; width:104%; border-radius:15px; margin-right:0px; margin-left:0px">
+							<h1 class="ProfileHeaderCard-name" style="margin:0px 0px 0px 0px; box-shadow:1px 1.5px 1px 1.5px #888888; height:0px;width:0px">{{ request.user }}</h1>
+						</div>
+						<div class="ProfileSidebar ProfileSidebar--withLeftAlignment" style="background-color: white">
+							<!-- <h1 class="ProfileHeaderCard-name" style="margin-top: 15px; box-shadow:1px 1.5px 1px 1.5px #888888; height:15px;width:15px">{{ object.username }}</h1> -->
 							<p class="ProfileHeaderCard-screenname u-inlineBlock u-dir" style="margin-top: 15px">
-
 							</p>
 							<div class="module Trends trends">
 							  <div class="trends-inner">
 								<div class="flex-module trends-container context-trends-container">
 								  <div class="flex-module-header">
-										<h1 style="margin: 15px; ">{{ request.user }}</h1>
+										<!-- <h1 style="margin: 15px; ">{{ request.user }}</h1> -->
 								  </div>
 
 								  <div class="flex-module-inner">
@@ -118,8 +120,8 @@
 
 						</div>
 					<div class="Grid-cell u-size1of3" style=" width: 30%; padding-left: 15px;">
-					<div class="Grid Grid--withGutter" style="background-color: white; box-shadow: 1px 1.5px 1px 1.5px #888888">
-						<div class="Grid-cell">
+					<div class="Grid Grid--withGutter" style="background-color: white; border-radius:15px; box-shadow: 1px 1.5px 1px 1.5px #888888; height:400px">
+							<div class="Grid-cell" style="height:400px" >
 							<div class="ProfileSidebar ProfileSidebar--withLeftAlignment">
 								<div class="module wtf-module js-wtf-module roaming-module has-content">
 									<div class="flex-module">
@@ -127,11 +129,7 @@
 									      <h1 style="margin: 10px">Who to Follow</h1>
 									  </div>
 										<div class="js-recommended-followers dashboard-user-recommendations flex-module-inner" data-section-id="wtf" style="opacity: 1;">
-											<div style="border: 1px solid #1da1f2;margin: 10px; border-radius: 15px; text-decoration-color: white; background-color: white/*#1da1f2*/;width: 90%; display: inline-block;text-align: center; color: white">
-
-													<p class="paddingconstant">
-														<a> <img class="image" src="https://www.thehindu.com/sci-tech/technology/internet/article17759222.ece/alternates/FREE_660/02th-egg-person" height="50em" width="50em"/>  </a>
-													</p>
+											<div style="border: 0px solid #1da1f2;margin: 10px; border-radius: 15px; text-decoration-color: white; background-color: white/*#1da1f2*/;width: 90%; display: inline-block;text-align: center; color: white">
 													<p class="paddingconstant">
 													<a>{% recommended request.user%} </a> </p>
 												<style>

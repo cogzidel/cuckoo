@@ -13,8 +13,8 @@
     <!-- Bootstrap CSS -->
     <link type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" media="screen">
 
-
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
     </script> -->
@@ -287,7 +287,7 @@ body{
             }
 
             // tweetContent = "<span class='content'>" + tweetValue.content + "</span> <br/> via <a href='" + tweetValue.user.url + "'>" + tweetValue.user.username + "</a> | " + tweetValue.date_display + " | " + " <a href='/tweet/" + tweetValue.id + "'>View</a> | " + " <a class='retweetBtn' href='/tweet/" + tweetValue.id + "/retweet/'>Retweet</a>" + " | <a href='#' class='tweet-like' data-id='" + tweetValue.id + "''>" + verb + "(" + tweetValue.likes + ")</a>" + " | <a class='tweet-reply' data-time='" + tweetValue.date_display + "' data-user='" + tweetValue.user.username + "'data-id='" + replyId + "'' >Reply</a>";
-            tweetContent = "<span class='content'>" + tweetValue.content + "</span> <br/> via <a href='" + tweetValue.user.url + "'>" + tweetValue.user.username + "</a> | " + tweetValue.date_display + " | " + " <br/><span class='contents'>   <a class='tweetview'  href='/tweet/" + tweetValue.id + "'><span class='glyphicon glyphicon-envelope' aria-hidden='True'></span></a>" + " <a class='retweetBtn glyphicon glyphicon-retweet' href='/tweet/" + tweetValue.id + "/retweet/'> </a>" + "  <a href='#' id='tweet_like' class='tweet-like glyphicon glyphicon-heart-empty ' data-id='" + tweetValue.id + "''>" + verb + "(" + tweetValue.likes + ")</a>" + "  <a class='tweet-reply glyphicon glyphicon-comment' data-time='" + tweetValue.date_display + "' data-user='" + tweetValue.user.username + "'data-id='" + replyId + "'' ></a></span>";
+            tweetContent = "<span class='content'>" + tweetValue.content + "</span> <br/> via <a href='" + tweetValue.user.url + "'>" + tweetValue.user.username + "</a> | " + tweetValue.date_display + " | " + " <br/><span class='contents'>   <a class='tweetview'  href='/tweet/" + tweetValue.id + "'><span class='fa fa-envelope' aria-hidden='True'></span></a>" + " <a class='retweetBtn fa fa-retweet' href='/tweet/" + tweetValue.id + "/retweet/'> </a>" + "  <a href='#' id='tweet_like' class='tweet-like fa fa-heart ' data-id='" + tweetValue.id + "''>" + verb + "(" + tweetValue.likes + ")</a>" + "  <a class='tweet-reply fa fa-comments' data-time='" + tweetValue.date_display + "' data-user='" + tweetValue.user.username + "'data-id='" + replyId + "'' ></a></span>";
 
 
           // </div>;
