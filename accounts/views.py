@@ -4,11 +4,10 @@ from django.contrib.auth import get_user_model
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
-from forms import EditProfileView
 from django.views import View
 from django.views.generic import DetailView
 from django.views.generic.edit import FormView
-from .forms import UserRegisterForm
+from .forms import UserRegisterForm, EditProfileView
 from .models import UserProfile
 from django.contrib.auth import update_session_auth_hash
 # Create your views here.

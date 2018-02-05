@@ -32,7 +32,6 @@ class UserRegisterForm(forms.Form):
 		return email
 
 class EditProfileView(UserChangeForm):
-
 	class Meta:
 		model = User
 		fields = (
