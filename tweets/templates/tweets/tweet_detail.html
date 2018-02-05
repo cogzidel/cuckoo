@@ -10,6 +10,37 @@
 
 {% block content %}
 <div id="page-outer">
+	<div id="page-container" class="AppContent wrapper wrapper-home">
+  <div class='row'>
+		<div class='Grid Grid--withGutter'>
+			<div class='Grid-cell u-size1of3 u-lg-size1of4' style="background-color: white; box-shadow: 1px 1.5px 1px 1.5px #888888;">
+				<div class="Grid Grid--withGutter">
+					<div class="Grid-cell">
+            <h1 class="ProfileHeaderCard-name" style="margin: 15px">
+              {{ object.user }}</h1>
+
+
+					</div>
+				</div> 		  
+			</div>
+			<div class='Grid-cell u-size2of3 u-lg-size3of4' style="padding-left: 15px; width: 80%">
+				<div class="Grid Grid--withGutter" style='background-color:white; box-shadow: 1px 1.5px 1px 1.5px #888888; padding-left: 15px;font-size:15px'>
+          <div id='tweet-container'  style="padding:15px;background-color: white;">
+      		</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+    		</div>
+	</div>
+</div>
+
+
+
+<!--
+
+<div id="page-outer">
 <div id="page-container" class="AppContent wrapper wrapper-home">
 <div class='row'>
 	<div class=' col-sm-3 col-xs-12' style='background-color:white; box-shadow: 1px 1.5px 1px 1.5px #888888 '>
@@ -21,5 +52,8 @@
 	</div>
 </div>
 </div>
-</div>
+</div> -->
+
+
+
  {% endblock content %}
