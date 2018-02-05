@@ -26,10 +26,10 @@
 
         <div class="AppContainer" style="margin-top: 5em;">
           <div class="AppContent-main u-cf">
-            <div class="Grid Grid--withGutter">
+            <div class="Grid Grid--withGutter" >
               <div class="Grid-cell u-size1of3 u-lg-size1of4">
 
-                  <div class="SidebarCommonModules">
+                  <div class="SidebarCommonModules" style="margin:15px">
                     <div class="module wtf-module js-wtf-module roaming-module has-content">
                       <div class="flex-module">
                         <div class="flex-module-header">
@@ -86,9 +86,8 @@
                     </div>
                   </div>
               </div>
-
-              <div class="Grid-cell u-size2of3 u-lg-size3of4" style="margin-top: 10px;">
-                <div class="row">
+              <div class="Grid-cell u-size2of3 u-lg-size3of4" ">
+                <div class="row" style="margin:15px">
                  <div class="col-sm-12" style="background-color: white">
                    {% if request.GET.q %}
                    <p class="lead">Results for {{ request.GET.q }}</p>

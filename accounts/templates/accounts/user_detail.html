@@ -11,67 +11,70 @@
 
 
 {% block content %}
-<div id="page-outer">
-	<div id="page-container" class="AppContent wrapper wrapper-home">
-		<div class='Grid Grid--withGutter'>
-			<div class='Grid-cell u-size1of3 u-lg-size1of4' style="background-color: white; height: 400px; border-radius:15px; box-shadow: 1px 1.5px 1px 1.5px #888888">
-				<div class="Grid Grid--withGutter">
-					<div class="Grid-cell">
-						<div class="ProfileSidebar ProfileSidebar--withLeftAlignment">
-							<h1 class="ProfileHeaderCard-name" style="margin-top: 5px box-shadow:1px 1.5px 1px 1.5px #888888">{{ object.username }}</h1>
-							<p class="ProfileHeaderCard-screenname u-inlineBlock u-dir" style="margin-top: 15px"> Followers: {{object.followed_by.all.count}}
-							</p>
-							<p>
-								<a class='btn btn-link' style="margin-top: 10px;text-decoration-color:  white; border: 1px solid #1da1f2; padding: 10px; border-radius: 25px; color: black; background-color: #1da1f2;width:auto;padding:5px" href='{{ object.profile.get_follow_url }}'>
-									{% if following %}Unfollowing{% else %}Follow{% endif %}
-								</a>
-							</p>
+<div class="SearchNavigation">
+	<div class="SearchNavigation-canopy u-bgUserColor">
+		<div class="SearchNavigation-textContainer">
+			<h1 class="SearchNavigation-titleText" style="padding-left: 3em;" dir="ltr">
+				<h1 class="ProfileHeaderCard-name" style="margin-left:5em;margin-top: 5px box-shadow:1px 1.5px 1px 1.5px #888888">{{ object.username }}</h1>
 
-						</div>
+			</h1>
+		</div>
+
+	</div>
+	<div class="AdaptiveFiltersBar" style="height:3em">
+		<div style="">
+					<a style="margin-left:12em">
+						<p class="ProfileHeaderCard-screenname u-inlineBlock u-dir" style="margin-top: 15px"> Followers: {{object.followed_by.all.count}}
+						</p>
+					</a>
+
+					<div class="u-floatRight u-textRight with-rightCaret" style="margin-right: 10em;margin-top: 10px;">
+						<a class='btn btn-link' style="text-decoration-color:white; border: 1px solid #1da1f2;border-radius: 25px; color: black; background-color: #1da1f2;width:auto;padding:5px" href='{{ object.profile.get_follow_url }}'>
+							{% if following %}Unfollowing{% else %}Follow{% endif %}
+						</a>
 					</div>
-				</div> 		  
 			</div>
-				<div class='Grid-cell u-size2of3 u-lg-size3of4' style="padding-left: 15px; width: 80%">
+	</div>
+</div>
+<div id="page-outer" style="margin-top:8em">
+	<div id="page-container" class="AppContent wrapper wrapper-home">
+
+		<div class='Grid Grid--withGutter' style="margin-top:15em">
+				<div class='Grid-cell u-size1of3 u-lg-size1of4' style="background-color: white; height: 400px; border-radius:15px; box-shadow: 1px 1.5px 1px 1.5px #888888">
 					<div class="Grid Grid--withGutter">
+						<div class="Grid-cell" style="margin:5px">
+							<div class="ProfileSidebar ProfileSidebar--withLeftAlignment">
+								<h1 class="ProfileHeaderCard-name" style="background-color: #1c94e0;padding:1em;border-radius:15px;" > Following : <large style="color:white">{{ object.profile.get_following.count}}</large></h1>
+								   	<!--  {{ object.profile.following}} -->
+								{% for user in object.profile.get_following %}
+								  <a style="margin: 5px; color: black;padding:5px;display: inline-block;text-align: center;"  href='/{{ user.username}}'>{{ user.username }}</a><br/>
+								  {% empty %}
+								  <h4 class="ProfileHeaderCard-screenname u-inlineBlock u-dir" style="margin-top: -10px"> Not following  users </h4>
+								    {% endfor %}
+								  <h1 class="ProfileHeaderCard-name"  style="background-color: #1c94e0;padding:1em;margin-top: 10px;border-radius:15px;">Followed By</h1>
+								   <!--  {{ object.profile.following}} -->
+									{% for profile in object.followed_by.all %}
+								 <a style="margin: 5px; color: black;padding:5px;display: inline-block;text-align: center;"  href='/{{ profile.user.username}}'>{{ profile.user.username }}</a>
+								  <br/>
+								  {% empty %}
+								  <h4 class="ProfileHeaderCard-screenname u-inlineBlock u-dir"> Not followed by  any users </h4>
+								    {% endfor %}
 
-						<div class="Grid-cell u-lg-size2of3" style="background-color: white; width: 70%; ">
-							<h1 class="ProfileHeaderCard-name" style="background-color: white; margin-top: 20px;margin-bottom: 20px;"  >Tweets</h1>
-							<div id='tweet-container' data-url='/api/{{ object.username }}/tweet'>
-							</div>
-							<a href='#' id='loadmore'>Load More Tweets</a>
-
-							<!-- {% for tweet in object.tweet_set.all %}
-							{{ tweet }} <br/>
-							{% endfor %} -->
-							<!-- {{ object.content }}<br/>
-							<br/>
-							{{ object.timestamp|timesince }} -->
-						</div>
-
-						<div class="Grid-cell u-size1of3" style=" width: 30%; padding-left: 15px;">
-							<div class="Grid Grid--withGutter" style="background-color: white; height: 400px; border-radius:15px; box-shadow: 1px 1.5px 1px 1.5px #888888">
-							<div class="Grid-cell">
-									<div class="ProfileSidebar ProfileSidebar--withLeftAlignment">
-										<h1 class="ProfileHeaderCard-name" > Following <small>{{ object.profile.get_following.count}}</small></h1>
-										   	<!--  {{ object.profile.following}} -->
-										{% for user in object.profile.get_following %}
-										  <a style="margin: 5px; border: 2px solid #1da1f2; border-radius: 15px;color: black; background-color: #1da1f2; width:auto;padding:5px;display: inline-block;text-align: center;"  href='/{{ user.username}}'>{{ user.username }}</a><br/>
-										  {% empty %}
-										  <h4 class="ProfileHeaderCard-screenname u-inlineBlock u-dir" style="margin-top: -10px"> Not following  users </h4>
-										    {% endfor %}
-										  <h1 class="ProfileHeaderCard-name"  style="margin-top: 10px">Followed By</h1>
-										   <!--  {{ object.profile.following}} -->
-											{% for profile in object.followed_by.all %}
-										 <a style="margin: 5px;border: 1px solid #1da1f2; border-radius: 15px; color: black; background-color: #1da1f2;width: 50%; display: inline-block;text-align: center;"  href='/{{ profile.user.username}}'>{{ profile.user.username }}</a>
-										  <br/>
-										  {% empty %}
-										  <h4 class="ProfileHeaderCard-screenname u-inlineBlock u-dir"> Not followed by  any users </h4>
-										    {% endfor %}
-
-									</div>
-								</div>
 							</div>
 						</div>
+					</div> 		  
+				</div>
+				<div class='Grid-cell u-size2of3 u-lg-size3of4' style="padding-left: 25px; width: 80%;">
+					<div class="Grid Grid--withGutter" style="width:100%">
+
+						<div class="Grid-cell u-size2of3 u-lg-size3of4" style="background-color: white; width:80% !important;border-radius:15px; box-shadow: 1px 1.5px 1px 1.5px #888888">
+							<h1 class="ProfileHeaderCard-name" style="background-color: #1c94e0;padding:1em;text-align:center"  >Tweets</h1>
+							<div id='tweet-container' style="padding:2em" data-url='/api/{{ object.username }}/tweet'>
+							</div>
+							<a style="text-align:center;padding:10em" href='#' id='loadmore'>Load More Tweets</a>
+						</div>
+
+
 					</div>
 				</div>
 		</div>
