@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib.auth import get_user_model
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
 
 User = get_user_model()
 
@@ -11,7 +12,7 @@ class UserRegisterForm(forms.Form):
 	# password2 = forms.CharField(label='Confirm Password', widget=forms.PasswordInput)
 
 	# def clean_password2(self):
-	# 	password = self.cleaned_data.get('password')		
+	# 	password = self.cleaned_data.get('password')
 	# 	password2 = self.cleaned_data.get('password2')
 
 	# 	if password != password2:
@@ -29,3 +30,15 @@ class UserRegisterForm(forms.Form):
 		if User.objects.filter(email__icontains=email).exists():
 			raise forms.ValidationError("This email is already registered.")
 		return email
+
+class EditProfileView(UserChangeForm):
+
+	class Meta:
+		model = User
+		fields = (
+			'username',
+			'first_name',
+			'last_name',
+			'email',
+			'password',
+			)

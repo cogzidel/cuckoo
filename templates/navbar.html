@@ -39,71 +39,25 @@
                       </button>
                     </span>
 
-                    <!-- <div role="listbox" class="dropdown-menu typeahead" id="typeahead-dropdown-1">
-                      <div aria-hidden="true" class="dropdown-caret">
-                        <div class="caret-outer"></div>
-                        <div class="caret-inner"></div>
-                      </div>
-
-                      <div role="presentation" class="dropdown-inner js-typeahead-results">
-                        <div role="presentation" class="typeahead-recent-searches block0">
-                            <h3 id="recent-searches-heading" class="typeahead-category-title recent-searches-title">Recent searches</h3>
-                            <button type="button" tabindex="-1" class="btn-link clear-recent-searches">Clear All</button>
-                            <ul role="presentation" class="typeahead-items recent-searches-list">
-
-                              <li role="presentation" class="typeahead-item typeahead-recent-search-item">
-                                <span class="Icon Icon--close" aria-hidden="true"><span class="visuallyhidden">Remove</span></span>
-                                <a role="option" aria-describedby="recent-searches-heading" class="js-nav" href="" data-search-query="" data-query-source="" data-ds="recent_search" tabindex="-1"></a>
-                              </li>
-                            </ul>
-                        </div>
-
-                        <div role="presentation" class="typeahead-saved-searches block2">
-                          <h3 id="saved-searches-heading" class="typeahead-category-title saved-searches-title">Saved searches</h3>
-                          <ul role="presentation" class="typeahead-items saved-searches-list">
-
-                            <li role="presentation" class="typeahead-item typeahead-saved-search-item">
-                              <span class="Icon Icon--close" aria-hidden="true"><span class="visuallyhidden">Remove</span></span>
-                              <a role="option" aria-describedby="saved-searches-heading" class="js-nav" href="" data-search-query="" data-query-source="" data-ds="saved_search" tabindex="-1"></a>
-                            </li>
-                          </ul>
-                        </div>
-
-                        <ul role="presentation" class="typeahead-items typeahead-topics block3" style="display: none;">
-                          <li role="presentation" class="typeahead-item typeahead-topic-item">
-                            <a role="option" class="js-nav" href="" data-search-query="" data-query-source="typeahead_click" data-ds="topics" tabindex="-1"></a>
-                          </li>
-                        </ul>
-
-                        <ul role="presentation" class="typeahead-items typeahead-accounts social-context js-typeahead-accounts block4" style="display: none;">
-
-                          <li role="presentation" data-user-id="" data-user-screenname="" data-remote="true" data-score="" class="typeahead-item typeahead-account-item js-selectable">
-
-                            <a role="option" class="js-nav" data-query-source="typeahead_click" data-search-query="" data-ds="account">
-                              <div class="js-selectable typeahead-in-conversation hidden">
-                                <span class="Icon Icon--follower Icon--small"></span>
-                                <span class="typeahead-in-conversation-text">In this conversation</span>
-                              </div>
-                              <img class="avatar size32" alt="">
-                              <span class="typeahead-user-item-info account-group">
-                                <span class="fullname"></span><span class="UserBadges"><span class="Icon Icon--verified js-verified hidden"><span class="u-hiddenVisually">Verified account</span></span><span class="Icon Icon--protected js-protected hidden"><span class="u-hiddenVisually">Protected Tweets</span></span></span><span class="UserNameBreak">&nbsp;</span><span class="username u-dir" dir="ltr">@<b></b></span>
-                              </span>
-                              <span class="typeahead-social-context"></span>
-                            </a>
-                          </li>
-                          <li role="presentation" class="js-selectable typeahead-accounts-shortcut js-shortcut"><a role="option" class="js-nav" href="" data-search-query="" data-query-source="typeahead_click" data-shortcut="true" data-ds="account_search"></a></li>
-                        </ul>
-                      </div>
-                    </div> -->
 
                   </form>
               </div>
 
+
               <ul class="nav right-actions">
                 <li class="me dropdown session js-session" data-global-action="t1me" id="user-dropdown">
-                      <a href="{{ request.user.profile.get_absolute_url }}" class="btn js-tooltip settings dropdown-toggle js-dropdown-toggle" id="user-dropdown-toggle" title="Profile and settings" data-placement="bottom" rel="noopener" role="button" aria-haspopup="true">
-                          <img class="Avatar Avatar--size32" src="https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png" alt="Profile and settings" data-user-id="2218875613">
-                      </a>
+
+                      <ul class="nav navbar-nav navbar-right">
+                          <li class="dropdown">
+                            <a href="#" style="border-radius:unset; margin-top:70px; box-shadow:unset;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"  aria-expanded="false">Account <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                              <li><a href="{{ request.user.profile.get_absolute_url }}">Profile</a></li>
+                              <li role="separator" class="divider"></li>
+                              <li><a href="{% url 'login' %}">Change password</a></li>
+                            </ul>
+                          </li>
+                          </ul>
+
 
                 </li>
 

@@ -3,14 +3,56 @@ from __future__ import unicode_literals
 from django.contrib.auth import get_user_model
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
+from forms import EditProfileView
 from django.views import View
 from django.views.generic import DetailView
 from django.views.generic.edit import FormView
 from .forms import UserRegisterForm
 from .models import UserProfile
+from django.contrib.auth import update_session_auth_hash
 # Create your views here.
 
 User = get_user_model()
+
+def edit_profile(request):
+
+    if request.method == 'POST':
+        form = EditProfileView(request.POST, instance=request.user)
+
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            # raw_password = form.cleaned_data.get('password1')
+            # user = authenticate(username=username, password=raw_password)
+            # login(request, user)
+            return redirect("profiles:detail", username=username)
+
+    else:
+        form = EditProfileView(instance=request.user)
+
+        return render(request, 'accounts/edit_profile.html', {'form': form})
+
+def change_password(request):
+
+    if request.method == 'POST':
+        form = PasswordChangeForm(data=request.POST, user=request.user)
+
+        if form.is_valid():
+            form.save()
+            update_session_auth_hash(request, form.user)
+            username = form.cleaned_data.get('username')
+            # raw_password = form.cleaned_data.get('password1')
+            # user = authenticate(username=username, password=raw_password)
+            # login(request, user)
+            return redirect("/")
+
+
+    else:
+        form = PasswordChangeForm(user=request.user)
+
+        return render(request, 'accounts/change_password.html', {'form': form})
+
 
 class UserRegisterView(FormView):
   template_name = 'accounts/user_register_form.html'
@@ -53,3 +95,15 @@ class UserFollowView(View):
  			# 	user_profile.following.remove(toggle_user)
  			# else:
  			# 	user_profile.following.add(toggle_user)
+
+class EditProfileView(UserChangeForm):
+
+	class Meta:
+		model = User
+		fields = (
+			'username',
+			'first_name',
+			'last_name',
+			'email',
+			'password',
+			)
