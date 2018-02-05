@@ -5,37 +5,58 @@
 		loadTweetContainer("tweet-container")
 	});
 	</script>
+  <style>
+  .paddingcontent{
+    margin: 5px;
+    padding: 5px;
+  }
+  </style>
  {% endblock script %}
 
 
-{% block content %} 
-
-	<div class="row">
-		<div class="col-sm-12">
+{% block content %}
+<div id="page-outer">
+	<div id="page-container" class="AppContent wrapper wrapper-home">
+  <div class='row'>
+    <div class="col-sm-12" style="background-color: #2196f3; box-shadow: 1px 1.5px 1px 1.5px #888888;color:white">
 			{% if request.GET.q %}
-			<p class="lead">Results for {{ request.GET.q }}</p>
-			<hr/>
+			<p class="lead" style="color: white;font-size: x-large;">Results for {{ request.GET.q }}</p>
 			{% endif %}
 		</div>
-		
-		<div class="col-sm-9">
-			<h1>Tweets</h1>
-			<hr/>
- 			<div id="tweet-container" data-url="/api/search/">
- 			</div>
- 			<a href="#" id="loadmore">Load More Tweets</a>
-				
+
+		<div class='Grid Grid--withGutter' style="margin:5px">
+			<div class='Grid-cell u-size2of3 u-lg-size3of4' style="background-color: white; box-shadow: 1px 1.5px 1px 1.5px #888888;margin-top: 15px;">
+				<div class="Grid Grid--withGutter">
+					<div class="Grid-cell">
+            <h1 class="ProfileHeaderCard-name" style="margin: 15px;text-align: center;">
+              Tweets</h1>
+              <hr/>
+              <div class="paddingcontent" id="tweet-container" data-url="/api/search/">
+         			</div>
+         			<a class="paddingcontent" style="margin:15px; text-align: center;" href="#" id="loadmore">Load More Tweets</a>
+					</div>
+				</div> 		  
+			</div>
+			<div class='Grid-cell u-size1of3 u-lg-size1of4' style="padding-left: 15px;">
+				<div class="Grid Grid--withGutter" style='background-color:white; box-shadow: 1px 1.5px 1px 1.5px #888888; padding-left: 15px;font-size:15px'>
+          <h1 class="ProfileHeaderCard-name" style="margin: 15px;padding-top:15px;text-align: center;">
+            User</h1>
+            <hr/>
+      			{% for user in users %}
+      			<a class="paddingcontent" href="/{{user.username}}/" style="margin-top:15px">{{user.username}}<hr/></a><br/>
+      			{% empty%}
+      			<p> No user found</p>
+      			{% endfor %}
+      		</div>
+
+					</div>
+				</div>
+			</div>
 		</div>
-		<div class='col-sm-3'>
-			<h1>User</h1>
-			<hr/>
-			{% for user in users %}
-			<a href="/{{user.username}}/">{{user.username}}</a><br/>
-			{% empty%}
-			<p> No user found</p>
-			{% endfor %}
-		</div>
+  </div>
 	</div>
+</div>
+
 {% endblock content %}
 
 
