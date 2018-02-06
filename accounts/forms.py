@@ -7,8 +7,8 @@ User = get_user_model()
 class UserRegisterForm(forms.Form):
 
 	username = forms.CharField(widget=forms.TextInput(attrs={'class': 'js-username-field email-input js-initial-focus', 'placeholder': 'Username'}), max_length=30, required=True)
-	fname = forms.CharField(widget=forms.TextInput(attrs={'class': 'js-username-field email-input js-initial-focus', 'placeholder': 'Firstname'}), max_length=20, required=True)
-	lname = forms.CharField(widget=forms.TextInput(attrs={'class': 'js-username-field email-input js-initial-focus', 'placeholder': 'Lastname'}), max_length=30, required=True)
+	first_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'js-username-field email-input js-initial-focus', 'placeholder': 'Firstname'}), max_length=20, required=True)
+	last_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'js-username-field email-input js-initial-focus', 'placeholder': 'Lastname'}), max_length=30, required=True)
 	email = forms.EmailField(widget=forms.TextInput(attrs={'class': 'js-username-field email-input js-initial-focus' , 'placeholder': 'Email'}), required=True,)
 	password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'js-password-field js-initial-focus', 'placeholder': 'Password'}), required=True,)
 	# password2 = forms.CharField(label='Confirm Password', widget=forms.PasswordInput)
@@ -35,18 +35,18 @@ class UserRegisterForm(forms.Form):
 
 class EditProfileView(UserChangeForm):
 
-	# class Meta:
-	model = User
+	class Meta:
+		model = User
 	# username = forms.CharField(widget=forms.TextInput(attrs={'class': 'js-username-field email-input js-initial-focus', 'placeholder': 'Username'}), max_length=30, required=True)
 	# first_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'js-username-field email-input js-initial-focus', 'placeholder': 'Firstname'}), max_length=20, required=True)
 	# last_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'js-username-field email-input js-initial-focus', 'placeholder': 'Lastname'}), max_length=30, required=True)
 	# email = forms.EmailField(widget=forms.TextInput(attrs={'class': 'js-username-field email-input js-initial-focus' , 'placeholder': 'Email'}), required=True,)
 	# password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'js-password-field js-initial-focus', 'placeholder': 'Password'}), required=True,)
 
-		# fields = (
-		# 	'username',
-		# 	'first_name',
-		# 	'last_name',
-		# 	'email',
-		# 	'password',
-		# 	)
+		fields = (
+			'username',
+			'first_name',
+			'last_name',
+			'email',
+			'password',
+			)
