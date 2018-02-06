@@ -24,6 +24,8 @@
             <h1 class="SearchNavigation-titleText" style="padding-left: 3em;" dir="ltr">
               {% if request.GET.q %}
         			<p class="lead" style="color: white;font-size: x-large;">Results for {{ request.GET.q }}</p>
+              {% else %}
+              <p class="lead" style="color: white;font-size: x-large;"></p>
         			{% endif %}
             </h1>
           </div>
