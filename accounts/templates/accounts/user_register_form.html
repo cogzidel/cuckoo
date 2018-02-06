@@ -36,6 +36,10 @@
     font-style:normal;
     font-weight: bold;
   }
+  .errorlist
+  {
+    color: red;
+  }
     /* body{
       font-family: "Lato"
     } */
@@ -108,56 +112,71 @@ data-fouc-class-names="swift-loading no-nav-banners"
 
   <div class="signin-wrapper" data-login-message="" style="font-family:lato; font-style: normal;">
     <h1 class="login" style="font-family:lato; font-style: normal; font-weight: bold">Join on Cuckoo</h1>
-  <!--   {% if form.errors %}
-<p>Your username and password didn't match. Please try again.</p>
+    {% if form.errors %}
+      {% if form.errors.username %}
+        <p class="error_text">{{form.errors.username}}</p>
+      {% endif %}
+
+      {% if form.errors.email %}
+        <p class="error_text">{{form.errors.email}}</p>
+      {% endif %}
+
+       {% if form.errors.password %}
+        <p class="error_text">{{form.errors.email}}</p>
+      {% endif %}
+
+      {% if form.errors.fname%}
+        <p class="error_text">{{form.errors.email}}</p>
+      {% endif %}
+
+      {% if form.errors.lname %}
+        <p class="error_text">{{form.errors.email}}</p>
+      {% endif %}
+
+
 {% endif %}
 
 {% if next %}
     {% if user.is_authenticated %}
-    <p>Your account doesn't have access to this page. To proceed,
+    <p style="color: red">Your account doesn't have access to this page. To proceed,
     please login with an account that has access.</p>
 
     {% endif %}
-{% endif %} -->
+{% endif %}
+
 <form method="post" action="{% url 'register' %}" class="t1-form clearfix signin js-signin" >
 {% csrf_token %}
 
   
-      <fieldset>
+  <fieldset>
 
-  <legend class="visuallyhidden">Sign Up</legend>
+    <legend class="visuallyhidden">Sign Up</legend>
 
-  <div class="clearfix field">
-    <!-- <input
-      class="js-username-field email-input js-initial-focus"
-      type="text"
-      name="username"
-      id="username"
-      autocomplete="on" value=""
-      placeholder="username"
-    /> -->
-       {{ form.username  }}
-  </div>
-  <div class="clearfix field">
-   <!--  <input
-      class="js-username-field email-input js-initial-focus"
-      type="text"
-      name="email"
-      id="email"
-      autocomplete="on" value=""
-      placeholder="email"
-    /> -->
-      {{ form.email  }}
-  </div>
-  <div class="clearfix field">
-      {{ form.password }}
-   <!--  <input class="js-password-field" type="password" name="password" id="password" placeholder="Password"> -->
-  </div>
+     <div class="clearfix field">
+     
+         {{ form.fname  }}
+    </div>
+     <div class="clearfix field">
+     
+         {{ form.lname  }}
+    </div>
+    <div class="clearfix field">
+     
+         {{ form.username  }}
+    </div>
+    <div class="clearfix field">
+   
+        {{ form.email  }}
+    </div>
+    <div class="clearfix field">
+        {{ form.password }}
+     <!--  <input class="js-password-field" type="password" name="password" id="password" placeholder="Password"> -->
+    </div>
 
 
 
-      <input type="hidden" name="ui_metrics" autocomplete="off">
-      <script src="/i/js_inst?c_name=ui_metrics" async></script>
+        <input type="hidden" name="ui_metrics" autocomplete="off">
+      <!--   <script src="/i/js_inst?c_name=ui_metrics" async></script> -->
 
 </fieldset>
 
