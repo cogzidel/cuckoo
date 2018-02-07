@@ -123,15 +123,15 @@ data-fouc-class-names="swift-loading no-nav-banners"
       {% endif %}
 
        {% if form.errors.password %}
-        <p class="error_text">{{form.errors.email}}</p>
+        <p class="error_text">{{form.errors.password}}</p>
       {% endif %}
 
-      {% if form.errors.fname%}
-        <p class="error_text">{{form.errors.email}}</p>
+      {% if form.errors.first_name%}
+        <p class="error_text">{{form.errors.first_name}}</p>
       {% endif %}
 
-      {% if form.errors.lname %}
-        <p class="error_text">{{form.errors.email}}</p>
+      {% if form.errors.last_name %}
+        <p class="error_text">{{form.errors.last_name}}</p>
       {% endif %}
 
 
@@ -155,11 +155,11 @@ data-fouc-class-names="swift-loading no-nav-banners"
 
      <div class="clearfix field">
      
-         {{ form.fname  }}
+         {{ form.first_name  }}
     </div>
      <div class="clearfix field">
      
-         {{ form.lname  }}
+         {{ form.last_name  }}
     </div>
     <div class="clearfix field">
      

@@ -3,8 +3,13 @@
 <script>
     $(document).ready(function(){
     
-        $("#id_email").css("width", "50%");
+      $("#id_email").css("width", "50%");
         });
+
+      $("#id_username").attr('placeholder', 'User name');
+      $("#id_first_name").attr('placeholder', 'First name');
+      $("#id_last_name").attr('placeholder', 'Last name');
+      $("#id_email").attr('placeholder', 'Email');
 </script>
 {% endblock %}
 {% block head %}
