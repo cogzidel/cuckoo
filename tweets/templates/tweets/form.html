@@ -1,5 +1,5 @@
 {% load crispy_forms_tags %}
-<style> 
+<style>
 .btn-primary{
 	background-color: white
 }
@@ -7,5 +7,5 @@
 <form class='form {% if form_class %}{{ form_class }}{% endif %}' method='POST' action="{% if action_url %}{{ action_url }}{% endif %}">
 	{% csrf_token %}
 	{{ form|crispy }}
-	<input class='btn btn-primary' style="color: black; background-color:steelblue; border-radius: 15px; border: 1px solid grey; margin: 10px " type="submit" value="{{ btn_title }}" />
+	<input class='btn btn-primary' id='btn-disable' style="color: black; background-color:steelblue; border-radius: 15px; border: 1px solid grey; margin: 10px " type="submit" value="{{ btn_title }}" />
 </form>

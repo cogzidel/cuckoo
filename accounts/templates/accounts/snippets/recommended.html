@@ -1,29 +1,51 @@
 {% load static %}
 {% for profile in recommended %}
-<style>
+<style type="text/css">
   .image{
     border-radius: 100%;
-    width: 50px;
-    height: 50px;
-    display: inline-block;
-    /* padding-right: 5px; */
+    width: 25px;
+    height: 25px;
   }
   a .image {
     float: left;
   }
   .table_who_to_follow{
-    padding-bottom: 50px;
+    width:inherit;
+    height:inherit;
+    table-layout:fixed;
   }
+  .th_set{
+     width:inherit;
+     height:inherit;
+     padding-top: 1em;
+
+  }
+  td{
+    width:inherit;
+    overflow: hidden;
+    height:inherit;
+    padding-top: 1em;
+  }
+
 </style>
-<table style="width:50%">
-
-   <tr class="table_who_to_follow">
-    <td><a href='/{{ profile.user.username}}'> <img class="image w3-card-4" src="{%static 'bootstrap/img/default_user.jpg'%}" href='/{{ profile.user.username}}'></a></td>
-
-    <td><a href='/{{ profile.user.username}}'>  {{ profile.user.username }}</a></td>
-
-  </tr>
-
+<table>
+      <tr class="table_who_to_follow">
+        <th class="th_set" rowspan="2" >
+          <a href='/{{ profile.user.username}}'>
+            <img class="image w3-card-4" src="{%static 'bootstrap/img/default_user.jpg'%}" href='/{{ profile.user.username}}'>
+          </a>
+        </th>
+        <td>
+          <span style="display:block;font-size:15px;color:#2196f3; width=100% !important;word-wrap:break-all; white-space:normal">{{ profile.user.username }}</span>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href='/{{ profile.user.username}}' style="text-align:center">
+            <input type="submit" class="EdgeButton EdgeButton--primary EdgeButtom--medium" value="View" style="width:80px;height:25px;text-align:center"/>
+          </a>
+        </td>
+      </tr>
 </table>
 
 {% empty %}
