@@ -433,16 +433,21 @@ body{
               {
                spanChars.removeClass("grey-color");
                spanChars.removeClass("red-color");
+               $('.btn-primary').show();
               } else if (charsCurrent == 0)
               {
                spanChars.removeClass("red-color");
                spanChars.addClass("grey-color");
+               $('.btn-primary').show();
 
               } else if (charsCurrent < 0)
               {
                spanChars.removeClass("grey-color");
                spanChars.addClass("red-color");
+               $('.btn-primary').hide();
+
              }
+
              });
 
 

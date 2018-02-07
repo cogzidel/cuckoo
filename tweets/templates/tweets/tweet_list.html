@@ -18,8 +18,8 @@
 
 {% block content %}
 
-<div id="page-outer" style="margin-top:5em">
-	<div id="page-container" class="AppContent wrapper wrapper-home">
+<div id="page-outer" style="margin-top:5em;width:100%">
+	<div id="page-container" class="AppContent wrapper wrapper-home" style="width:100%">
 		<div class='Grid Grid--withGutter'>
 			<div class='Grid-cell u-size1of3 u-lg-size1of4' style="background-color: white; border-radius:15px; box-shadow: 1px 1.5px 1px 1.5px #888888">
 				<div class="Grid Grid--withGutter">
@@ -130,34 +130,22 @@
 
 						</div>
 					<div class="Grid-cell u-size1of3" style=" width: 30%; padding-left: 15px;">
-					<div class="Grid Grid--withGutter" style="background-color: white; border-radius:15px; box-shadow: 1px 1.5px 1px 1.5px #888888; height:400px">
-							<div class="Grid-cell" style="height:400px" >
-								<div class="SidebarCommonModules" style="margin:15px">
+					<div class="Grid Grid--withGutter" style="background-color: white; border-radius:15px; box-shadow: 1px 1.5px 1px 1.5px #888888; height:auto">
+							<div class="Grid-cell" style="height:auto" >
+								<div class="SidebarCommonModules">
 									<div class="module wtf-module js-wtf-module roaming-module has-content">
-										<div class="flex-module">
-											<div class="flex-module-header">
-												<h3>Who to follow</h3>
-												<input type="button" value="Refresh" class="btn-link js-refresh-suggestions" onClick="document.location.reload(true)"/>
-
-
+										<div class="flex-module" style="width:100%">
+											<div class="flex-module-header" style="width:100%">
+												<p>
+													<h3>Who to follow</h3>
+													<small><input type="button" value="Refresh" class="btn-link js-refresh-suggestions" onClick="document.location.reload(true)"></small>
+											</p>
+											<hr/>
 											</div>
 
-											<div class="js-recommended-followers dashboard-user-recommendations flex-module-inner" data-section-id="wtf" style="opacity: 1;">
-													<div style="border: 0px solid #1da1f2;margin-top: 10px; border-radius: 15px; text-decoration-color: white; background-color: white/*#1da1f2*/;width: 90%; display: inline-block;text-align: center; color: white">
-														<!-- <p class="paddingconstant">
-															<a> <img class="image" src="https://www.thehindu.com/sci-tech/technology/internet/article17759222.ece/alternates/FREE_660/02th-egg-person" height="50em" width="50em"/>  </a>
-														</p> -->
-														<p class="paddingconstant">
-														<a> {% recommended request.user%} </a> </p>
-
-														<style>
-															.image{
-																border-radius: 100%;
-															}
-														</style>
-
-													</div>
-
+											<div class="js-recommended-followers dashboard-user-recommendations flex-module-inner" data-section-id="wtf" style="opacity: 1;width:100%;height:100%">
+												<p>
+												 {% recommended request.user%} </p>
 											</div>
 										</div>
 

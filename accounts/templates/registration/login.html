@@ -36,6 +36,10 @@
     font-style:normal;
     font-weight: bold;
   }
+  .errorlist
+  {
+    color: red;
+  }
     /* body{
       font-family: "Lato"
     } */
@@ -84,7 +88,7 @@ data-fouc-class-names="swift-loading no-nav-banners"
   <ul class="nav secondary-nav language-dropdown">
     <li class="dropdown js-language-dropdown">
       <a href="{% url 'register' %}"" class="dropdown-toggle js-dropdown-toggle">
-       <span class="js-current-language"; style="color: white; font-style: Opensans;" >Register</span>
+       <span class="js-current-language"; style="color: white; font-style: Opensans;" >Sign up</span>
       </a>
 
 
@@ -108,12 +112,12 @@ data-fouc-class-names="swift-loading no-nav-banners"
   <div class="signin-wrapper" data-login-message="" style="font-family:lato; font-style: normal;">
     <h1 class="login" style="font-family:lato; font-style: normal; font-weight: bold">Log in to Cuckoo</h1>
     {% if form.errors %}
-<p>Your username and password didn't match. Please try again.</p>
+<p class="errorlist">Your username and password didn't match. Please try again.</p>
 {% endif %}
 
 {% if next %}
     {% if user.is_authenticated %}
-    <p>Your account doesn't have access to this page. To proceed,
+    <p class="errorlist">Your account doesn't have access to this page. To proceed,
     please login with an account that has access.</p>
 
     {% endif %}
