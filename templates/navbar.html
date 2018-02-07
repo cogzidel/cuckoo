@@ -1,24 +1,14 @@
-<!-- <script type="text/javascript">
-  function callme() {
-    var search_input = $("#search-query").val();
-    if(search_input=="")
-    {
-      alert("Please enter a valid Search");
-      return false;
-    }
-  }
-</script> -->
+{% load static %}
 <div class="topbar js-topbar">
   <div class="ProfilePage-editingOverlay"></div>
   <div class="global-nav" data-section-term="top_nav">
       <div class="global-nav-inner">
         <div class="container">
-          <h1 class="Icon Icon--bird bird-topbar-etched" style="display: inline-block; width: 24px; height: 21px;">
+          <h1 class="" style="display: inline-block; width: 24px; height: 21px;">
+            <img src="{%static 'bootstrap/img/twitter-logo-2.png'%}" style="height:25px; margin-top:10px; margin-left:50px; "alt="">
             <span class="visuallyhidden">Twitter</span>
           </h1>
-
           <div class="pushstate-spinner"></div>
-
           <div role="navigation" style="display: inline-block;">
             <ul class="nav js-global-actions" id="global-actions">
                 <li id="global-nav-home" class="home active new" data-global-action="home">
@@ -33,11 +23,8 @@
                 </li>
             </ul>
           </div>
-
           {% if request.user.is_authenticated %}
-
           <div class="pull-right nav-extras">
-
               <div role="search">
                   <form class="t1-form form-search js-search-form" action="/search" id="global-nav-search">
                     <label class="visuallyhidden" for="search-query">Search query</label>
