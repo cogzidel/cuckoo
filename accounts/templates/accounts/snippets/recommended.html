@@ -1,5 +1,5 @@
 {% load static %}
-{% for profile in recommended %}
+
 <style type="text/css">
   .image{
     border-radius: 100%;
@@ -28,7 +28,9 @@
   }
 
 </style>
+{% for profile in recommended %}
 <table>
+
       <tr class="table_who_to_follow">
         <th class="th_set" rowspan="2" >
           <a href='/{{ profile.user.username}}'>
@@ -51,6 +53,7 @@
 {% empty %}
 <p class="lead"> Not followed by  any users </p>
 {% endfor %}
+
 
 
 <!-- {% for profile in recommended %}
